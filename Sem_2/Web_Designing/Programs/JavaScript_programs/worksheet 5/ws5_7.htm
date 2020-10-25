@@ -1,0 +1,50 @@
+
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_7
+		</title>
+		<script>
+			var sum = 0;
+			var prod = 1;
+			var min = 1;
+			var max = 1;
+			var i = 0;
+			function rec()
+			{
+				console.log("Entered");
+				var x = parseFloat(document.getElementById("num").value);
+				console.log("Entered2");
+				sum += x;
+				prod *= x;
+				if(i==0)
+				{
+					min = max = x;
+					i += 1;
+				}
+				else
+				{
+					if(x < min)
+						min = x;
+					else
+						max = x;
+				}
+			}
+			function display()
+			{
+				
+				var p = "The sum of the numbers is " + sum + "\nThe Product of the numbers is " + prod + "\nThe Average of the numbers is " + (sum/3)
+								+ "\nThe Max of the numbers is " + max + "\nThe Min of the numbers is " + min; 
+				alert(p);
+			}
+		</script>
+	</head>
+	<body>
+		<p>Enter the three numbers </P>
+		<br><input type="number" id="num">
+		<button onclick = "rec()">Record</button><br><br>
+		<button onclick = "display()">Display</button><br><br>
+		<p id = "display"></p>
+	</body>
+</html>

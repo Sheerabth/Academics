@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1580400142 source:g:\sem2\object computing\programs\practice\timeoff\main.cpp
+	<iostream>
+	"Timeoff.h"
+	<string>
+
+1580304957 g:\sem2\object computing\programs\practice\timeoff\timeoff.h
+	<string>
+
+1580304284 source:g:\sem2\object computing\programs\practice\timeoff\timeoff.cpp
+	<iostream>
+	<string>
+	"Timeoff.h"
+
+1580410863 source:g:\git\sem_2\object_computing\programs\practice\timeoff\main.cpp
+	<iostream>
+	"Timeoff.h"
+	<string>
+
+1580414879 g:\git\sem_2\object_computing\programs\practice\timeoff\timeoff.h
+	<string>
+

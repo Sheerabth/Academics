@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1583773895 source:g:\git\sem_2\object_computing\programs\practice\operatoroverloading\operatoroverloading\main.cpp
+	<iostream>
+	"overload.h"
+
+1583774387 g:\git\sem_2\object_computing\programs\practice\operatoroverloading\operatoroverloading\overload.h
+
+1583774412 source:g:\git\sem_2\object_computing\programs\practice\operatoroverloading\operatoroverloading\operatoroverloading.cpp
+	<iostream>
+	"overload.h"
+

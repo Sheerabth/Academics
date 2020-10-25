@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function stringCount(str, ch)
+        {
+            var count = 0;
+            for(i = 0; i < str.length; i++)
+            {
+                if(str.charAt(i) == ch)
+                    count++;
+            }
+            return count;
+        }
+        function callback()
+        {
+            var str = document.getElementById("in1").value;
+            var ch = document.getElementById("in2").value;
+            var count = stringCount(str, ch);
+            document.getElementById("result").innerHTML = "The number of occurances is " + count;
+        }
+    </script>
+</head>
+<body>
+    <p>Enter the string</p>
+    <input type="text" id="in1" onkeypress="callback()">
+    <p>Enter the charachter to be searched for</p>
+    <input type="text" id="in2" onkeypress="callback()">
+    <p id="result"></p>
+</body>
+</html>

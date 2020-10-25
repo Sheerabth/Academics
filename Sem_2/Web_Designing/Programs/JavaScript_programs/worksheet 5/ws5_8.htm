@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_8
+		</title>
+		<script>
+			var pos = 0;
+			var neg = 0;
+			var zero = 0;
+			function rec()
+			{
+				var x = parseInt(document.getElementById("num").value);
+				console.log(x);
+				if(x < 0)
+				{
+					neg++;
+				}
+				else if (x > 0)
+				{
+					pos++;
+				}
+				else
+				{
+					zero++;
+				}
+			}
+			
+			function dis()
+			{
+				var p = document.getElementById("display");
+				p.innerHTML = "The number of positive numbers are " + pos + "<br> The number of negative numbers are " + neg + "<br> The number of Zeros are " + zero;
+			}
+		</script>
+	</head>
+	<body>
+		<p>Enter the five numbers </P>
+		<br><input type="number" id="num">
+		<button onclick = "rec()">Record</button><br><br>
+		<button onclick = "dis()">Display</button><br><br>
+		<p id = "display" ></p>
+	</body>
+</html>

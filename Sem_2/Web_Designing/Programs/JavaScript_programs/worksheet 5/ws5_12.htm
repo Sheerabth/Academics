@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_12
+		</title>
+		<script>
+			
+			function display()
+			{
+				var str = document.getElementById("str").value;
+				var x = document.getElementById("head");
+				x.innerHTML = str;
+			}
+			function search()
+			{
+				var str = document.getElementById("str").value;
+				var sub = document.getElementById("sub").value;
+				var p1 = str.indexOf(sub);
+				var p2 = str.lastIndexOf(sub);
+				var p3 = str.indexOf(sub,12);
+				var p4 = str.indexOf(sub,12);
+				var x1 = document.getElementById("one");
+				x1.innerHTML = p1;
+				var x2 = document.getElementById("two");
+				x2.innerHTML = p2;
+				var x3 = document.getElementById("three");
+				x3.innerHTML = p3;
+				var x4 = document.getElementById("four");
+				x4.innerHTML = p4;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>The String to be searched is <br></h1>
+		<h1 id = "head"></h1>
+		<p>Enter the Main string </P><input type="text" id="str">
+		<button onclick = "display()" >Enter</button>
+		<p>Enter the sub string <input type = "text" id = "sub"><button type = "text" onclick = "search()">Search</button></P>
+		
+		<p>First Occurenece is located at <span id ="one" ></span></P>
+		<p>Last Occurenece is located at <span id ="two" ></span></P>
+		<p>First Occurenece since 12 is located at <span id ="three" ></span></P>
+		<p>Last Occurenece since 12 is located at <span id ="four" ></span></P>
+	</body>
+</html>

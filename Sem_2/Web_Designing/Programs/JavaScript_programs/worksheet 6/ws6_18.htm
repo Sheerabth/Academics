@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_18
+		</title>
+		<script>
+			var library = [{ author: 'Bill Gates', title: 'The Road Ahead', libraryID: 1254},{ author: 'Steve Jobs', title: 'Walter Isaacson', libraryID: 4264},{ author: 'Suzanne Collins', title: 'Mockingjay: The Final Book of The Hunger Games', libraryID: 3245} ]; 
+			
+			console.log(library);
+			var x;
+			var y;
+			var i, j;
+			for(i = 0; i < library.length-1 ;i++ )
+			{
+				for(j = i ;j < library.length ;j++ )
+				{
+					if(library[i].title.localeCompare(library[j].title) == 1)
+					{
+						var temp = library[i];
+						library[i] = library[j];
+						library[j] = temp;
+					}
+				}
+			}
+			console.log(library);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

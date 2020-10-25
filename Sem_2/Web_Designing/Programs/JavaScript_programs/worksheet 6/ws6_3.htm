@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_3
+		</title>
+		
+	</head>
+	<body>
+		<script>
+
+				do
+				{
+					var num = prompt("Enter the number");
+					var flag = isEven(num);
+					if(flag == true)
+					{
+						alert("The number is even");
+					}
+					else
+					{
+						alert("The number is not even");
+						break;
+					}
+				}while(true);
+
+			function isEven(num)
+			{
+				if(num%2 == 0)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

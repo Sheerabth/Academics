@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_12
+		</title>
+		
+	</head>
+	<body>
+		<p id = "disp"></p>
+		<script>
+			var color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "]; 
+			var o = ["th","st","nd","rd"];
+			var i;
+			var disp = document.getElementById('disp');
+			for(i=0; i<color.length; i++)
+			{
+				if(i < 3)
+				{
+					disp.innerHTML += i+1 + o[i+1] + " choice is " + color[i] + ".<br>";
+				}
+				else
+				{
+					disp.innerHTML += i+1 + o[0] + " choice is " + color[i] + ".<br>";
+				}
+
+			}
+		</script>
+	</body>
+</html>

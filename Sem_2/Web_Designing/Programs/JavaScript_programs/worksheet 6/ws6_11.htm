@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_11
+		</title>
+		<script>
+			var sales = new Array(4);
+			var x = 0;
+			for(x = 0; x < 5 ; x++)
+			{
+				sales[x] = new Array(5);
+			}
+			var j, k;
+			for(j = 0; j < 4; j++)
+			{
+				for(k=0; k<5; k++)
+				{
+					sales[j][k] = 0;
+				}
+			}
+
+			function vcount(j)
+			{
+				var sum = 0;
+				var x;
+				for(x = 0; x < 4; x++)
+				{
+					sum += sales[x][j];
+				}
+				return sum;
+			}
+
+
+			function hcount(i)
+			{
+				var sum = 0;
+				var x;
+				for(x = 0; x < 5; x++)
+				{
+					sum += sales[i][x];
+				}
+				return sum;
+			}
+
+			function callback()
+			{	
+				var i;
+				document.getElementById('disp').innerHTML = "Product 		1 	2 	3 	4 	5 	Total\n";
+				var pnum = parseInt(document.getElementById("pnum").value);
+				var pronum = parseInt(document.getElementById("pronum").value);
+				var amt = parseInt(document.getElementById("amt").value);
+				sales[pnum-1][pronum-1] = amt;
+				for(i = 0; i < 4; i++)
+				{
+					document.getElementById('disp').innerHTML += "\nSales Person " + (i+1) +" 		";
+					for(j=0; j<5; j++)
+					{
+						document.getElementById('disp').innerHTML += sales[i][j] + " 	";
+					}
+					document.getElementById('disp').innerHTML += hcount(i);
+					document.getElementById('disp').innerHTML += "\n";
+				}
+				document.getElementById('disp').innerHTML += "\nTotal 			"
+				for(j = 0; j < 5; j++)
+				{
+					document.getElementById('disp').innerHTML += vcount(j) + "	";	
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<table padding = 100px> 
+			<tr>
+				<td>Enter sales person number:</td>
+				<td><input type="number" id="pnum"></td>
+			</tr>
+			<tr>
+				<td>Enter sales product number:</td>
+				<td><input type="number" id="pronum"></td>
+			</tr>
+			<tr>
+				<td>Enter sales amount:</td>
+				<td><input type="number" id="amt"></td>
+			</tr>
+		</table>
+		<button onclick = "callback()">Enter Sales Figure</button><br><br>
+		<textarea rows = 13  cols = 70 id = "disp" readonly> </textarea>
+		
+	</body>
+</html>

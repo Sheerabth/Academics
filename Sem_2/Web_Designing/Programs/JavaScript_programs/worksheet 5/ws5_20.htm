@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_
+		</title>
+		<script>
+			function palindrome()
+			{
+				var txt = document.getElementById('txt').value;
+				if(txt.length != 5)
+				{
+					alert("The given input is invalid");
+				}
+				else
+				{
+					var num = parseInt(txt);
+					var i = 0;
+					var n1;
+					var n2;
+					var flag = true;
+					for(i = 5; i > 1; i -= 2)
+					{
+						n1 = parseInt(num/Math.pow(10, i-1));
+						
+						n2 = num%10;
+						
+						if(n1 != n2)
+						{
+							flag = false;
+							break;
+						}
+					num = parseInt(num/10);
+					num = parseInt(num%Math.pow(10, i-2));
+											}
+					if(flag == true)
+					{
+						document.getElementById('display').innerHTML = "The given number is a palindrome.";
+					}
+					else
+					{
+						document.getElementById('display').innerHTML = "The given number is not a palindrome.";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Palindrome Check</h1>
+		<p>Please enter the string</p>
+		<input type="text" id="txt">
+		<button onclick="palindrome()" onfocus="">Check</button>
+		<p id = "display"></p>
+	</body>
+</html>	

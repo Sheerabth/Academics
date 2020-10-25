@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_4
+		</title>
+		
+	</head>
+	<body>
+		<h1>Calculating distance between two points</h1>
+		<p>The distance between the two points is</P>
+		<p id = "ans"></p>
+		<script>
+			var x1 = prompt("Entere x_1");
+			var y1 = prompt("Entere y_1");
+			var x2 = prompt("Entere x_2");
+			var y2 = prompt("Entere y_2");
+			var p1 = document.getElementById("ans");
+			p1.innerHTML = Math.sqrt(Math.pow(x2-x1, 2) +  Math.pow(y2-y1, 2));
+		</script>
+	</body>
+</html>

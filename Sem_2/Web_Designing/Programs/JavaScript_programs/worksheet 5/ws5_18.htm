@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_18
+		</title>
+
+	</head>
+	<body>
+		<script>
+			var num = parseInt(prompt("Please enter the number"));
+			var n1 = parseInt(num/1000);
+			var n2 = parseInt((num/100)%10);
+			var n3 = parseInt((num%100)/10);
+			var n4 = parseInt(num%10);
+			n1 = (n1+7)%10;
+			n2 = (n2+7)%10;
+			n3 = (n3+7)%10;
+			n4 = (n4+7)%10;
+
+			var t;
+			t = n1;
+			n1 = n3;
+			n3 = t;
+			t = n2;
+			n2 = n4;
+			n4 = t;
+			console.log(n1);
+			console.log(n2);
+			console.log(n3);
+			console.log(n4);			
+			document.write("The encrypted integer is " + n1 + n2 + n3 + n4);
+		</script>
+	</body>
+</html>

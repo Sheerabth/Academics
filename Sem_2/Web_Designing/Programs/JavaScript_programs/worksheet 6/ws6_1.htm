@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_1
+		</title>
+		<script>
+			function circleArea()
+			{
+				var rad = parseFloat(document.getElementById("rad").value);
+				document.getElementById("display").innerHTML = "The area of the circle is " + Math.PI * rad * rad;
+			}
+		</script>
+	</head>
+	<body >
+		<p>Enter the Radius</p>
+		<input type="number" id="rad">
+		<button onclick="circleArea()">Claculate Area</button>
+		<p id = "display"></p>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+	<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_2
+		</title>
+		<script>
+			function dist()
+			{
+				var x1 = parseFloat(document.getElementById('x1').value);
+				var y1 = parseFloat(document.getElementById('y1').value);
+				var x2 = parseFloat(document.getElementById('x2').value);
+				var y2 = parseFloat(document.getElementById('y2').value);
+				var ans = Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2);
+				ans = Math.sqrt(ans);
+				document.getElementById('display').innerHTML = "The distance between the Points is " + ans;
+			}
+		</script>
+	</head>
+	<body>
+		<p>Enter x1 <input type="number" id="x1"></p>
+		<p>Enter y1 <input type="number" id="y1"></p>
+		<p>Enter x2 <input type="number" id="x2"></p>
+		<p>Enter y2 <input type="number" id="y2"></p>
+		<button onclick="dist()">Claculate Distance</button>
+		<p id = "display"></p>
+	</body>
+</html>

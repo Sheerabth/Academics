@@ -1,0 +1,79 @@
+	<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_10
+		</title>
+		
+	</head>
+	<body>
+		<table margin = 10px>
+			<tr>
+				<th>number</th>
+				<th>square</th>
+				<th>cube</th>
+			</tr>
+			<tr>
+				<td>x[0]</td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+		<script>
+			var x = document.getElementsByTagName("td");
+			var i = 0;
+			var num = 1;
+			for(; num <= 10; i += 3, num++)
+			{
+				x[i].innerHTML = num;
+				x[i+1].innerHTML = num * num;
+				x[i+2].innerHTML = num * num * num;
+			}
+		</script>
+	</body>
+</html>

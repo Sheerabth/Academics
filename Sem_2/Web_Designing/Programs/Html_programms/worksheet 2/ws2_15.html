@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    legend{
+        text-align: center;
+    }
+</style>
+<body>
+    <form action="#">
+        <fieldset>
+            <legend>Personal Information</legend>
+            <span>Title:</span>
+            <select name="Title">
+                <option value="Mr">Mr.</option>
+                <option value="Mrs">Mrs.</option>
+                <option value="Miss">Miss.</option>
+                <option value="Ms">Ms.</option>
+                <option value="Dr">Dr.</option>
+            </select> <br> <br>
+            <span>Age:</span>
+            <select name="Age">
+                <option value="Under 20">Under 20</option>
+                <option value="20-29">20-29</option>
+                <option value="30-39">30-39</option>
+                <option value="40-49">40-49</option>
+                <option value="50-59">50-59</option>
+                <option value="Over 60">Over 60</option>
+            </select> <br> <br>
+            <span>Gender:</span> <br>
+            <input type="radio" name="gender" value="male"> Male 
+            <input type="radio" name="gender" value="female"> Female <br> <br>
+            <span>Status:</span>
+            <select name="Status">
+                <option value="Employed">Employed</option>
+                <option value="Unemployed">Unemployed</option>
+                <option value="Student">Student</option>
+            </select> <br> <br>
+            <span>Day:</span>
+            <input type="number" min="1" max="31">
+            <span>Month:</span>
+            <select name="Month">
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            <span>Year:</span>
+            <input type="number" min="1960" max="1996"> <br> <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+</body>
+</html>

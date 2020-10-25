@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_8
+		</title>
+		<script>
+			function occur()
+			{
+				
+				var str = document.getElementById('str').value;
+				var len = str.length;
+				var char = document.getElementById("char").value;
+				str = str.split('');
+				var count = 0 ;
+				for(var i = 0; i < len; i++)
+				{
+					if(str[i] == char)
+					{
+						count++;
+					}
+				}
+				document.getElementById("disp").innerHTML = "Number of occrences is " + count + " time(s)."
+			}
+		</script>
+	</head>
+	<body>
+		<p>Please enter the string</p>
+		<input type="text" id="str">
+		<p>Please enter the character(Press enter after complition)</p>
+		<input type="text" id="char" onkeypress="occur()"><br><br>
+		
+		<p id = "disp"></p>
+	</body>
+</html>	

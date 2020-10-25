@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_4
+		</title>
+		<script>
+			function rev()
+			{
+				var num = document.getElementById('num').value;
+				var flag = true;
+				var d;
+				var i = num.length;
+				var val = 0;
+				while(i != 0)
+				{
+					d = num%10;
+					val += d*Math.pow(10, i-1);
+					console.log("Value of val is " + val);
+					num = parseInt(num/10);
+					i--;
+				}
+				alert(val);
+			}
+		</script>
+	</head>
+	<body>
+		<p>Please enter the number</p>
+		<input type="number" id="num">
+		<button onclick="rev()">Generate</button>
+	</body>
+</html>

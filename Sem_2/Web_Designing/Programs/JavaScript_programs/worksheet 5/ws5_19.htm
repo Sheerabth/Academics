@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_19
+		</title>
+
+	</head>
+	<body>
+		<script>
+			var num = prompt("Enter the number of inputs ");
+			var i = 0;
+			var val;
+			var min = 9999999;
+			for(; i<num; i++)
+			{
+				val = prompt("Enter the value");
+				if(val < min)
+				{
+					min = val;
+				}
+			}
+			document.write("The smallest of these non negative integers is " + min);
+		</script>
+	</body>
+</html>

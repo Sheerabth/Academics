@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		ws5_2
+	</title>
+	<script type="text/javascript">
+		function calculate()
+		{
+			var x = document.getElementById("check");
+			var y = document.getElementById("number").input;
+			y = parseInt(y);
+			console.log( y*1);
+			if(x.checked)
+			{
+				document.getElementById("answer").innerHTML = "The Answer is " + (y*1.32) + 32;
+			}
+			else
+			{
+				document.getElementById("answer").innerHTML = "The Answer is " + (9/5) * y +32;
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1 align="center">Celsius and Fahrenheit Conversions</h1>
+	<p><input type="radio" id="check">Celsius to Fahrenheit</p>
+	<p><input type="radio" >Fahrenheit to Celsius</p>
+	<p>Please enter the Temparature:  <input type="Number" id="number"></p>
+	<button onclick="calculate()">Calculate</button>
+	<p id="answer"></p>
+
+
+</body>
+</html>

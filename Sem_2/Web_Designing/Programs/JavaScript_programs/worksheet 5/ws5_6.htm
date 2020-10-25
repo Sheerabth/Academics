@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_6
+		</title>
+		<script>
+			function calc()
+			{
+				console.log("Start");
+				var x = parseFloat(document.getElementById("num1").value);
+				var y = parseFloat(document.getElementById("num2").value);
+				var p = document.getElementById("display");
+				if(document.getElementById("sum").checked)
+				{
+					p.innerHTML = "The sum of numbers is " + (x+y);
+				}
+				if(document.getElementById("diff").checked)
+				{
+					p.innerHTML = "The difference of numbers is " + (x-y);
+				}
+				if(document.getElementById("mul").checked)
+				{
+					p.innerHTML = "The product of numbers is " + (x*y);
+				}
+				if(document.getElementById("div").checked)
+				{
+					
+					p.innerHTML = "The quotient of numbers is " + (x/y);
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<p>Please enter the two numbrer <br><br><input type="number" id="num1"><br><br><input type="number" id="num2"></p>
+		<input type="radio" name = "op" id = "sum">Sum<br>
+		<input type="radio" name = "op" id = "diff">Difference<br>
+		<input type="radio" name = "op" id = "mul">Multiplication<br>
+		<input type="radio" name = "op" id = "div">Division<br>
+		<button onclick = "calc()">Caculate</button>
+		<p id = "display"></p>
+	</body>
+</html>

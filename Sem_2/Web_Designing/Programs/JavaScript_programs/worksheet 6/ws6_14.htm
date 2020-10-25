@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_14
+		</title>
+		
+		<style>
+			
+			td 
+			{
+				height: 2px;
+				width: 2px;
+			}
+			#tab
+			{
+				border-style: solid;
+				border-width: 1px;
+			}
+			
+			button
+			{
+				margin: 0px;
+				width: 30px;
+				height: 30px;
+			}
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		<table id = "tab" cellspacing = "0px" >
+			
+		</table>
+		
+		<button onclick = "fun(0)"></button>
+		<button onclick = "fun(1)"></button>
+		<button onclick = "fun(2)"></button>
+		<button onclick = "fun(3)"></button>
+		<button onclick = "fun(4)"></button><br>
+		<button onclick = "fun(5)"></button>
+		<button onclick = "fun(6)"></button>
+		<button onclick = "fun(7)"></button>
+		<button onclick = "fun(8)"></button>
+		<button onclick = "fun(9)"></button><br><br>
+		<p>Eraser</p>
+		<button onclick = "fun(10)">
+		<script>
+			var number;
+			var color = ["red", "blue", "black", "grey", "brown", "pink", "crimson", "purple", "green", "yellow", "white"];
+			var butt = document.getElementsByTagName("button");
+			for(var k= 0; k<11; k++)
+			{
+				butt[k].style.backgroundColor = color[k];
+			}
+			var row, dat, node	;
+			var d = false;
+			var tab = document.getElementById("tab");
+			for(var i = 0; i<200; i++)
+			{
+				row = document.createElement("tr");
+				for(var j=0; j<200; j++)
+				{
+					dat = document.createElement("td");
+					dat.addEventListener("mousedown", down);
+					dat.addEventListener("mouseup", up);
+					dat.addEventListener("mousemove", inPlace);
+					node = document.createTextNode("");
+					dat.appendChild(node);
+					row.appendChild(dat);
+				}
+				tab.appendChild(row);
+			}
+			
+			function down()
+			{
+				d = true;
+			}
+			
+			function up()
+			{
+				d = false;
+			}
+			
+			function fun(num)
+			{
+				 number = num;
+			}
+			function inPlace(event)
+			{
+				if(d == true)
+				{
+					 
+					event.target.style.backgroundColor = color[number];
+				)
+			}
+		</script>
+	</body>
+</html>

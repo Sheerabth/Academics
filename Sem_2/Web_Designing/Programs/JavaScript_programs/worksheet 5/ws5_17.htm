@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_17
+		</title>
+
+	</head>
+	<body>
+		<script>
+			var pay = prompt("Please enter the pay for one hour");
+			var e1 = prompt("Please enter the number of hours Employee 1 worked ");
+			var e2 = prompt("Please enter the number of hours Employee 2 worked ");
+			var e3 = prompt("Please enter the number of hours Employee 3 worked ");
+			if(e1 < 40)
+			{
+				e1 = e1 * pay;
+			}
+			else
+			{
+				e1 = 40 * pay + (e1-40) * 1.5 * pay	;
+			}
+			if(e2 < 40)
+			{
+				e2 = e2 * pay;
+			}
+			else
+			{
+				e2 = 40 * pay + (e2-40) * 1.5 * pay	;
+			}
+			if(e3 < 40)
+			{
+				e3 = e3 * pay;
+			}
+			else
+			{
+				e3 = 40 * pay + (e3-40) * 1.5 * pay	;
+			}
+			document.write("Pay of Employee 1 is " + e1 + "<br>Pay of Employee 2 is " + e2 + "<br>Pay of Employee 3 is " + e3);
+		</script>
+	</body>
+</html>

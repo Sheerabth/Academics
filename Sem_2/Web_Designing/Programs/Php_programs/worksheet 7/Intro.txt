@@ -1,0 +1,15 @@
+<?php
+
+?>
+
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws7_
+		</title>
+	</head>
+	<body>
+
+	</body>
+</html>

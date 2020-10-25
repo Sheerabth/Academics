@@ -1,0 +1,6 @@
+MOV Ax, 10
+inc ax
+
+
+
+; [SOURCE]: D:\Git\Sem_3\18XW35 - MICROPROCESSOR AND EMBEDDED SYSTEMS\Tests\mycode.asm

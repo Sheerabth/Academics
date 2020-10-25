@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws5_3
+		</TITLE>
+		
+	</head>
+	<body>
+		<h1 align="center" >Simple and Compound Interest</h1>
+		
+		<p id = "display1"></p>
+		<p id = "display2"></p>
+		<script>
+			var p = prompt("Enter the Principal");
+			var r = prompt("Enter the Rate");
+			var t = prompt("Enter the Time");
+	
+			var p1 = document.getElementById('display1');
+			var p2 = document.getElementById('display2');
+			p1.innerHTML = "Simple Interest is " + (p*r*t)/100;
+			p2.innerHTML = "Compound Interest is " + -(p - (p*Math.pow((1+(1/r)), t)));
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_7
+		</title>
+		<script>
+			function cal(hour)
+			{
+				hour -= 3;
+				var charge = 2 + hour*0.5;
+				return charge;
+			}
+			function charge()
+			{
+				var charge;
+				var hour = parseInt(document.getElementById('val').value);
+				if(hour <= 3)
+					charge = 2;
+				else if(hour <= 19)
+					charge = cal(hour);
+				else
+					charge = 10;
+				document.getElementById("disp").innerHTML += "The Charge for " + hour + " hour(s) is " + charge + ".<br>";
+			}
+		</script>
+	</head>
+	<body>
+		<p>Please enter the number of hours parked</p>
+		<input type="number" id="val">
+		<button onclick = "charge()">Calculate Charge</button>
+		<p id = "disp"></p>		
+	</body>
+</html>

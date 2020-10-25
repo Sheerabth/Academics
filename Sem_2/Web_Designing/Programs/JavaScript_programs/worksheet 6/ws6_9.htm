@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_9
+		</title>
+		<script>
+
+			function check(str)
+			{
+				regexp = /^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}$/i;
+            if(regexp.test(str))
+                return true;
+            else
+                return false;
+			}
+			
+			function callback()
+			{
+				var str = document.getElementById('str').value;
+				if(check(str))
+					document.getElementById("disp").innerHTML = "The given string is a Domain";
+				else
+					document.getElementById("disp").innerHTML = "The given string is not a Domain";
+			}
+		</script>
+	</head>
+	<body>
+		<p>Please enter the value</p>
+		<input type="text" id="str" onkeypress="callback()">
+		<p id = "disp"></p>
+	</body>
+</html>

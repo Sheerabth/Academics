@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<HTML>
+	<head>
+		<title>
+			ws6_20
+		</title>
+		<script>
+			function check(num)
+			{ 
+				var letters = /^[A-Za-z]+$/;
+				var ins = document.getElementsByTagName('input');
+				if(num == 0)
+				{
+					if(ins[num].value.length > 12 || ins[num].value.length < 5)
+						{
+							alert("Wrong User ID\nUser Id should be between 5 and 7");
+						}
+				}
+				else if (num == 1) 
+				{
+
+					if(ins[num].value.length > 12 || ins[num].value.length < 7)
+					{
+						alert("Wrong User ID\nUser Id should be between 7 and 12");
+					}
+				}
+				else if(num == 2)
+				{
+					if(!ins[num].value.match(letters))
+					{
+						alert("Invalid input\nOnly alphabets are allowed");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Registration Form</h1>
+		<table>
+			<tr>
+				<td>User Id: </td>
+				<td><input type="text" id="ui" required onblur="check(0)"></td>
+			</tr>
+			<tr>
+				<td>Password: </td>
+				<td><input type="Password" id="pass" onblur="check(1)"required></td>
+			</tr>
+			<tr>
+				<td>Name: </td>
+				<td><input type="text" id="name" onblur="check(2)"required></td>
+			</tr>
+			<tr>
+				<td>Address: </td>
+				<td><input type="text" id ="addr"></td>
+			</tr>
+			<tr>
+				<td>Country: </td>
+				<td><select><option>India</option></select></td>
+			</tr>
+			<tr>
+				<td>ZIP code: </td>
+				<td><input type="number" name="zip" onblur="check(4)"></td>
+			</tr>
+			<tr>
+				<td>Email: </td>
+				<td><input type="Email" id="mail"></td>
+			</tr>
+			<tr>
+				<td>Sex: </td>
+				<td><input type="radio" name="gender" id="male" required> Male <input type="radio" name="gender" id="female" required> Female </td>
+			</tr>
+			<tr>
+				<td>Language: </td>
+				<td><input type="radio" name="lang" id="eng"> English <input type="radio" name="lang" id="neng"> Non-English 
+				</td>
+			</tr>
+			<tr>
+				<td>About: </td>
+				<td><textarea rols = "150" cols="40"></textarea></td>
+			</tr>
+		</table>
+		 <input type="submit">
+	</body>
+</html>
