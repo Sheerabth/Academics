@@ -3,10 +3,10 @@
 
 using namespace std;
 
-int findSpecial(vector<int> sequence, int start, int end, int k, int index)
+bool findSpecial(vector<int> sequence, int start, int end, int k, int index)
 {
     if (end - start + 1 < k)
-        return 0;
+        return false;
     if (end - start + 1 == k)
     {
         bool flag = true;
@@ -19,9 +19,9 @@ int findSpecial(vector<int> sequence, int start, int end, int k, int index)
             }
         }
         if (flag)
-            return sequence[index];
+            return true;
         else
-            return 0;
+            return false;
     }
     return findSpecial(sequence, start, end - 1, k, index) || findSpecial(sequence, start + 1, end, k, index);
 }

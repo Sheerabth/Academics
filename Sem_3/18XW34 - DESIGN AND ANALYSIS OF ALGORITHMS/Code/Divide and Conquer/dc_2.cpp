@@ -5,11 +5,8 @@ using namespace std;
 
 unsigned int Log5n(unsigned int n) 
 {
-    if(n < 5)
-        return 0;
-    return (n > 1) ? 1 + Log5n(n / 5) : 0; 
-} 
-
+    return (n >= 5) ? 1 + Log5n(n / 5) : 0; 
+}
 int minimumNumber(int present, int sum, int value)
 {
     if(sum >= value)
