@@ -18,10 +18,7 @@ bool findSpecial(vector<int> sequence, int start, int end, int k, int index)
                 break;
             }
         }
-        if (flag)
-            return true;
-        else
-            return false;
+       return flag;
     }
     return findSpecial(sequence, start, end - 1, k, index) || findSpecial(sequence, start + 1, end, k, index);
 }

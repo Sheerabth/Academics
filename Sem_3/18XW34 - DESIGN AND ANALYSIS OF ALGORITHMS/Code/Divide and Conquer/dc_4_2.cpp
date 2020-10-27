@@ -3,14 +3,30 @@
 using namespace std;
 
 
-int getIndex(int arr[], int size, int val)
-{
-    for(int i = 0; i < size; i++)
-        if(arr[i] == val)
-            return i;
-    return -1;
-}
-
+int getIndex(int arr[], int l, int r, int x) 
+{ 
+    if (r >= l) { 
+        int mid = l + (r - l) / 2; 
+  
+        // If the element is present at the middle 
+        // itself 
+        if (arr[mid] == x) 
+            return mid; 
+  
+        // If element is smaller than mid, then 
+        // it can only be present in left subarray 
+        if (arr[mid] > x) 
+            return binarySearch(arr, l, mid - 1, x); 
+  
+        // Else the element can only be present 
+        // in right subarray 
+        return binarySearch(arr, mid + 1, r, x); 
+    } 
+  
+    // We reach here when element is not 
+    // present in array 
+    return -1; 
+} 
 void merge(int arr[], int l, int m, int r)
 {
     int n1 = m - l + 1;
@@ -70,11 +86,11 @@ void mergeSort(int arr[], int l, int r)
 
  int filter(int arr[], int size, int x)
  {
-    int available = getIndex(arr, size, x+1);
+    int available = getIndex(arr, 0, size-1, x+1);
     if(available == -1)
         return x+1;
     while(available != -1)
-        available = getIndex(arr, size, ++x);
+        available = getIndex(arr, 0, size-1, ++x);
     return x;
  }
 
