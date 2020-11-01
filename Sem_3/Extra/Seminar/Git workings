@@ -1,0 +1,49 @@
+﻿ Git and fukin Github
+Version Control System
+
+Version control systems are a category of software tools that helps record changes to files by keeping a track of modifications done to the code.
+Vcs allows you to store multiple versions of the same file
+Vcs maintains archive versions
+Vcs maintains Historical versions ( who is the author of a particular version, when is this version  updated )
+All this info can be retrieved
+Nxt level Collaboration
+Recover from accidental deletions or edits
+A repository: It can be thought as a database of changes. It contains all the edits and historical versions (snapshots) of the project.
+Copy of Work (sometimes called as checkout): It is the personal copy of all the files in a project. You can edit to this copy, without affecting the work of others and you can finally commit your changes to a repository when you are done making your change
+ ( at particular point what is the state of repository )
+
+
+
+
+Centralized Vcs
+
+Centralized version control systems contain just one repository and each user gets their own working copy. You need to commit to reflecting your changes in the repository
+
+Two things are required to make your changes visible to others which are:
+    • You commit
+    • They update
+Benifit of cvcs is that all the people working on the project can have an insight on what the other devs are working on, this gives admins to fine-grain control over who can do what
+problem of cvcs 
+when the central repository is corrupted everything is lost 
+
+Decentralized Vcs
+
+Distributed version control systems contain multiple repositories. Each user has their own repository and working copy. Just committing your changes will not give others access to your changes. This is because commit will reflect those changes in your local repository and you need to push them in order to make them visible on the central repository. Similarly, When you update, you do not get other’s changes unless you have first pulled those changes into your repository.
+To make your changes visible to others, 4 things are required:
+    • You commit
+    • You push
+    • They pull
+    • They update
+
+Now Git is a Decentralized Version Control System
+
+Linus (Linux: ref to tarun)
+Why Git
+
+    • Branching and merging
+    • Fast
+    • Safe
+    • Staging area
+    • OPEN SOURCE
+      
+
