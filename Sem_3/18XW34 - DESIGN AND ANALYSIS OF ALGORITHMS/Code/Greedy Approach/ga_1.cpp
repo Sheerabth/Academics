@@ -10,12 +10,13 @@ int main()
     cin >> val;
     int ans = 0;
     temp = val-2;
+    //if number is even 
     if(val%2 == 0)
     {
         ans = __gcd(val, val-3);
         temp = val-1;
     }
-        
+    //itreating till we get the gcd is 1
     while(ans != 1)
     {
         ans = __gcd(val, temp);
