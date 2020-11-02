@@ -35,6 +35,7 @@ To make your changes visible to others, 4 things are required:
     • They pull
     • They update
 
+GIT
 Now Git is a Decentralized Version Control System
 
 Linus (Linux: ref to tarun)
@@ -46,4 +47,27 @@ Why Git
     • Staging area
     • OPEN SOURCE
       
+Github
+Github is a Git repository hosting service, which provides a web – based graphical interface
+Github helps every team member to work together on then project from eveywhere and makes it easy for them to collaborate
+
+Git vs Github
+
+Git
+Installed locally on the system
+Git can be used offline and does not need an internet connection for use
+Independent 
+used for version control and code sharing
+no gui – have to use command line
+competitors – Mercurial, supervision, IBM
+OPEN SOURCE
+Gthub
+hosted on the cloud
+github cannot be used and needs an intternet connection
+dependent
+used for centralised source code hosting
+gui
+free and pay use tiers
+Atlassian, Bitbucket and Gitlab
+
 
