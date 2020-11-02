@@ -371,8 +371,8 @@ Graph Graph::Djikstras(int sourceVertex)
         for (auto keyPair : shortDistList)
         {
             if (keyPair.second.second < keyWithtotalWeight.second)
-
-                pair<int, int> keyWithtotalWeight = keyPair.second;
+                keyWithtotalWeight = pair<int, int>(keyPair.first, keyPair.second.second);
+            
         }
         // Insert it into the Graph and add its totalWeight
         if (keyWithtotalWeight.second != 10000)
@@ -380,13 +380,12 @@ Graph Graph::Djikstras(int sourceVertex)
             nodesWithTotalWeight.insert(keyWithtotalWeight);
             shortestDistanceTree.insert(
                 shortDistList.find(keyWithtotalWeight.first)->second.first,
-                 {{keyWithtotalWeight.first, keyWithtotalWeight.second}});
+                 {{keyWithtotalWeight.first, keyWithtotalWeight.second - nodesWithTotalWeight.find(shortDistList.find(keyWithtotalWeight.first)->second.first)->second}});
         }
     }
 
     return shortestDistanceTree;
 }
-
 int main()
 {
     Graph graph;
