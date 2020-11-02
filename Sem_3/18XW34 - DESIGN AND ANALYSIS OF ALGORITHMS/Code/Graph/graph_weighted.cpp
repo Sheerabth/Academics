@@ -48,17 +48,23 @@ public:
 
 void Graph::insert(int value, set<EdgeTo> connectedNodes)
 {
+    //Finding if the value is already present
     map<int, set<EdgeTo>>::iterator iterator = adjacencyLists.find(value);
+    //If it is not there then inserting it  
     if (iterator == adjacencyLists.end())
         adjacencyLists.insert(pair<int, set<EdgeTo>>(value, connectedNodes));
+    //Else we are inserting the given set to the source vertex
     else
         iterator->second.insert(connectedNodes.begin(), connectedNodes.end());
-
+    //In this loop we are inserting the source to the destination list
     for (EdgeTo connectedVertex : connectedNodes)
     {
+        //Finding the position of the node
         map<int, set<EdgeTo>>::iterator iterator = adjacencyLists.find(connectedVertex.content);
+        //If its present then inserting 
         if (iterator != adjacencyLists.end())
             iterator->second.insert({value, connectedVertex.weight});
+        //Else we are creating a list in adjacencyList then inserting there
         else
         {
             set<EdgeTo> connected;
@@ -70,9 +76,13 @@ void Graph::insert(int value, set<EdgeTo> connectedNodes)
 
 set<EdgeTo> Graph::returnAdjacentVertices(int value)
 {
+    //Finding the position of value 
     map<int, set<EdgeTo>>::iterator iterator = adjacencyLists.find(value);
+
+    //If not present returning empty set
     if (iterator == adjacencyLists.end())
         return set<EdgeTo>();
+    //Else return the adj vertices
     else
         return set<EdgeTo>(iterator->second);
 }
@@ -80,8 +90,10 @@ set<EdgeTo> Graph::returnAdjacentVertices(int value)
 set<int> Graph::verticesWithDegree(int degree)
 {
     set<int> verticesMatchingDegree;
+    //Looping through all the vertices 
     for (auto keyValuePair : adjacencyLists)
     {
+        //Checking if the degree is the given degree then inserting if it is
         if (keyValuePair.second.size() == degree)
             verticesMatchingDegree.insert(keyValuePair.first);
     }
@@ -91,6 +103,7 @@ set<int> Graph::verticesWithDegree(int degree)
 long int Graph::totalDegree()
 {
     long int totalDegreeOfGraph = 0;
+    //Iterating through leach vertex and finding the degree
     for (auto pair : adjacencyLists)
         totalDegreeOfGraph += pair.second.size();
     return totalDegreeOfGraph;
@@ -98,13 +111,18 @@ long int Graph::totalDegree()
 
 bool Graph::hasPathTo(int src, int dest, set<int> &visited)
 {
+    //Finding the source position 
     map<int, set<EdgeTo>>::iterator iteratorToSrc = adjacencyLists.find(src);
+    //itreating through each adjacent vertices
     for (EdgeTo connectedVertex : iteratorToSrc->second)
     {
+        //If it is present then return true
         if (connectedVertex.content == dest)
             return true;
         else
-        {
+        { 
+            //if the element we are searching for is not present then we check if we already visited the vertex 
+            //if not we call the function again
             if (visited.find(connectedVertex.content) == visited.end())
             {
                 visited.insert(connectedVertex.content);
@@ -118,7 +136,7 @@ bool Graph::hasPathTo(int src, int dest, set<int> &visited)
 
 bool Graph::hasPath(int src, int dest)
 {
-    set<int> visited;
+    set<int> visited; // Set of nodes which are already transvered
     bool isConnected = hasPathTo(src, dest, visited);
     return isConnected;
 }
@@ -128,6 +146,7 @@ int Graph::numberOfNodes()
     return adjacencyLists.size();
 }
 
+//returns all the nodes
 set<int> Graph::allNodes()
 {
     set<int> nodes;
@@ -140,21 +159,25 @@ set<int> Graph::allNodes()
 
 void Graph::BFS(int node)
 {
+    //set to see if the node is already visited
     set<int> visited;
     queue<int> q;
 
     visited.insert(node);
     q.push(node);
 
+    //itreating till the queue is empty
     while (!q.empty())
     {
         node = q.front();
         cout << node << " ";
         q.pop();
-
+        //finding the position of the element that is dequeued 
         map<int, set<EdgeTo>>::iterator iteratorToSrc = adjacencyLists.find(node);
+        //itreating through all the elements which are adjacent to the element that is dequeued
         for (EdgeTo connectedVertex : iteratorToSrc->second)
         {
+            //if the element is not visited we insert the element into the visited set and enqueue the adjacent vertex 
             if (visited.find(connectedVertex.content) == visited.end())
             {
                 visited.insert(connectedVertex.content);
@@ -166,21 +189,26 @@ void Graph::BFS(int node)
 
 void Graph::DFS(int node)
 {
+    //set to see if the node is already visited
     set<int> visited;
     stack<int> s;
 
     visited.insert(node);
     s.push(node);
 
+    //itreating till the stack is empty
     while (!s.empty())
     {
         node = s.top();
         cout << node << " ";
         s.pop();
 
+        //finding the position of the element that is popped
         map<int, set<EdgeTo>>::iterator iteratorToSrc = adjacencyLists.find(node);
+        //itreating through all the elements which are adjacent to the element that is popped
         for (EdgeTo connectedVertex : iteratorToSrc->second)
         {
+            //if the element is not visited we insert the element into the visited set and push the adjacent vertex 
             if (visited.find(connectedVertex.content) == visited.end())
             {
                 visited.insert(connectedVertex.content);
@@ -293,33 +321,43 @@ void Graph::joinSets(map<int, set<int>> &sets, int srcRep, int destRep)
 
 Graph Graph::Djikstras(int sourceVertex)
 {
+    // Graph to store the resulting MinSpanTree, other Data structures -> complicated(coz no direction btw nodes)
     Graph shortestDistanceTree;
+    // Map (int to int), key->node and value->weight from source(total weight), for nodes which are shortestDistanceTree
     map<int, int> nodesWithTotalWeight;
 
+    // Insert sourceVertex
     shortestDistanceTree.insert(sourceVertex, {});
     nodesWithTotalWeight.insert(pair<int, int>(sourceVertex, 0));
 
+    // Terminate loop when all nodes are added into the shortestDistanceTree
     while (shortestDistanceTree.allNodes() != this->allNodes())
     {
+        // Temporary map to select the edge with minimum totalWeight to a node
         map<int, pair<int, int>> shortDistList;
 
+        
         for (int nodeToCheckEdges : shortestDistanceTree.allNodes())
         {
+            // Checking all edges from a node present in graph
             set<EdgeTo> connectedEdges = this->returnAdjacentVertices(nodeToCheckEdges);
 
             for (auto connectedEdge : connectedEdges)
             {
-                // Condition to insert a node into the SHT
+                // Check if a edge should be inserted if its not connected to a node in graph
                 if (nodesWithTotalWeight.find(connectedEdge.content) == nodesWithTotalWeight.end())
                 {
+                    // Calculate the totalWeight from source vertex
                     int totalWeight = nodesWithTotalWeight.find(nodeToCheckEdges)->second + connectedEdge.weight;
                     pair<int, int> nodeWithWeight = pair<int, int>(nodeToCheckEdges, totalWeight);
 
+                    // Insert into shortDistList if we dont have a entry
                     if (shortDistList.find(connectedEdge.content) == shortDistList.end())
                         shortDistList.insert(pair<int, pair<int, int>>(connectedEdge.content, nodeWithWeight));
 
                     else
                     {
+                        // If we have a entry, compare the weight, place the smallest one into shortDistList
                         auto nodeToCheck = shortDistList.find(connectedEdge.content);
                         if (totalWeight < nodeToCheck->second.second)
                             shortDistList.find(connectedEdge.content)->second = nodeWithWeight;
@@ -328,6 +366,7 @@ Graph Graph::Djikstras(int sourceVertex)
             }
         }
 
+        // List the edge with minimum totalWeight from the list of possible connections
         pair<int, int> keyWithtotalWeight = pair<int, int>(-1, 10000);
         for (auto keyPair : shortDistList)
         {
@@ -335,6 +374,7 @@ Graph Graph::Djikstras(int sourceVertex)
 
                 pair<int, int> keyWithtotalWeight = keyPair.second;
         }
+        // Insert it into the Graph and add its totalWeight
         if (keyWithtotalWeight.second != 10000)
         {
             nodesWithTotalWeight.insert(keyWithtotalWeight);
@@ -346,6 +386,7 @@ Graph Graph::Djikstras(int sourceVertex)
 
     return shortestDistanceTree;
 }
+
 int main()
 {
     Graph graph;
