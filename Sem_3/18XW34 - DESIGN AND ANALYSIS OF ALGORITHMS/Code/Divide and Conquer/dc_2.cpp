@@ -7,6 +7,7 @@ unsigned int Log5n(unsigned int n)
 {
     return (n % 5 == 0) ? 1 + Log5n(n / 5) : 0;
 }
+
 int minimumNumber(int present, int sum, int value)
 {
     if(sum >= value)
