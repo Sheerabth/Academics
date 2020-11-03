@@ -5,26 +5,23 @@ using namespace std;
 
 int main()
 {
-    cout << "Please enter thee number" << endl;
+    cout << "Please enter the number : ";
     int val, temp;
     cin >> val;
-    int ans = 0;
-    temp = val-2;
-    //if number is even 
-    if(val%2 == 0)
-    {
-        ans = __gcd(val, val-3);
-        temp = val-1;
-    }
-    //itreating till we get the gcd is 1
-    while(ans != 1)
-    {
-        ans = __gcd(val, temp);
-        if(ans != 1)
-            ans = 0;
-        temp = temp-2;
-    }
 
-    cout << "The value of the number which is a coprime of the given number and is less than given value - 1 is " << temp << endl;
+    temp = val - 2;
+
+    // if number is even
+    if ((val & 0x1) == 0)
+        temp -= 1;
+
+    // iterating till we get the gcd is 1
+    while (__gcd(val, temp) != 1 && temp > 1)
+        temp -= 2;
+
+    if (temp < 1)
+        cout << "We dont have a valid Co-prime" << endl;
+    else
+        cout << "The value of the number which is a coprime of the given number and is less than given value - 1 is " << temp << endl;
     return 0;
 }

@@ -1,34 +1,19 @@
-#include <bits/stdc++.h>
+ 
+#include <iostream>
+#include <algorithm>
+#include <string>
+
 using namespace std;
 
 int main()
 {
-    string sequence,input;
-    //taking input
-    cin >> sequence >> input;
+    string sortOrder, input;
+    cin >> sortOrder >> input;
 
-    vector<pair<int,char>> v;
-    //itreating through each letter givin in the input
-    for(int i = 0; i < input.length(); i++)
-    {
-        //itreating through each letter in the given sequence
-        for(int j = 0; j < 26; j++)
-        {
-            //if both of the chars are same then we insert in to the vector pair v
-            if(input[i] == sequence[j])
-            {
-                v.push_back(make_pair(j,sequence[j]));
-            }
-        }
-    }
+    sort(input.begin(), input.end(), [sortOrder](char a, char b) {
+        return sortOrder.find(a) < sortOrder.find(b);
+    });
 
-    //sorting based on int in v
-    sort(v.begin(),v.end());
-
-    //printing the vector
-    for(int i = 0; i < input.length(); i++){
-        cout << v[i].second;
-    }
-
+    cout << "Sorted String : " << input << endl;
     return 0;
 }

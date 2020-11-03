@@ -80,5 +80,7 @@ int main()
     }while(check == 'y');
     //calling the function getMax
     list<int> max = getMax(binaryNums);
+    for(int bit : max)
+        cout << bit << " ";
     return 0;
 }
