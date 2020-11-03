@@ -17,7 +17,7 @@ int main()
 
     // iterating till we get the gcd is 1
     while (__gcd(val, temp) != 1 && temp > 1)
-        temp -= 2;
+        temp -= 1;
 
     if (temp < 1)
         cout << "We dont have a valid Co-prime" << endl;

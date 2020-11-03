@@ -388,19 +388,42 @@ Graph Graph::Djikstras(int sourceVertex)
 }
 int main()
 {
-    Graph graph;
-    graph.insert(0, {{1,4}, {7, 8}});
-    graph.insert(1, {{7,11}, {2,8}});
-    graph.insert(2, {{8, 2},{5,4},{3, 7}});
-    graph.insert(3, {{5,14}, {4,9}});
-    graph.insert(4, {{5,10}});
-    graph.insert(6, {{8, 6},{7,1}});
-    graph.insert(7, {{8, 7}});
-    //graph.printAdjacent(1);
-    //graph.printVerticesWithDegree(1);
-    // int sum = graph.returnSumOfDegrees();
+    // Graph graph;
+    // graph.insert(0, {{1,4}, {7, 8}});
+    // graph.insert(1, {{7,11}, {2,8}});
+    // graph.insert(2, {{8, 2},{5,4},{3, 7}});
+    // graph.insert(3, {{5,14}, {4,9}});
+    // graph.insert(4, {{5,10}});
+    // graph.insert(6, {{8, 6},{7,1}});
+    // graph.insert(7, {{8, 7}});
+    Graph G;
+    int noOfVertices, vertex;
+    cout << "Enter the number of nodes: ";
+    cin >> noOfVertices;
+    for (int i=0; i < noOfVertices; i++) {
+        cout << "Enter the vertex value: ";
+        cin >> vertex;
+        int noOfAdjacentVertices;
+        cout << "Enter the number of adjacent vertices: ";
+        cin >> noOfAdjacentVertices;
+        set<EdgeTo> setTemp;
+        int adjVertex, weight;
+        cout << "Enter the adjacent vertices: \n";
+        for (int j=0; j < noOfAdjacentVertices; j++) {
+            cin >> adjVertex >> weight;
+            EdgeTo edgeTemp(adjVertex, weight);
+            setTemp.insert(edgeTemp);
+        }
+        G.Insert(vertex, setTemp);
+    }
+    //G.printAdjacent(1);
+    //G.printVerticesWithDegree(1);
+    // int sum = G.returnSumOfDegrees();
     // cout << "The sum is " << sum << endl;
-    // if(graph.hasPath(1, 8))
+    // if(G.hasPath(1, 8))
     //     cout << "Exists" << endl;
-    graph.Djikstras(0);
+    //G.DFS(0);
+    //G.BFS(0);
+    //G.kruskalMinSpanTree();
+    //G.Djikstras(0);
 }
