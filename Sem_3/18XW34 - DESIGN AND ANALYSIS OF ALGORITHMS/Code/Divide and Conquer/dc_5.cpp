@@ -10,7 +10,7 @@ int findMinWidth(vector<int>colors, int start, int minWidth)
 {
     if(start+2 == colors.size())
         return minWidth;
-    
+    k
     int width = colors[start+2] - colors[start];
     if(width == 2)
         return 2;

@@ -3,7 +3,6 @@ Version Control System
 
 Version control systems are a category of software tools that helps record changes to files by keeping a track of modifications done to the code.
 Vcs allows you to store multiple versions of the same file
-Vcs maintains archive versions
 Vcs maintains Historical versions ( who is the author of a particular version, when is this version  updated )
 All this info can be retrieved
 Nxt level Collaboration
@@ -38,7 +37,7 @@ To make your changes visible to others, 4 things are required:
 GIT
 Now Git is a Decentralized Version Control System
 
-Linus (Linux: ref to tarun)
+Linus
 Why Git
 
     • Branching and merging
@@ -61,6 +60,7 @@ used for version control and code sharing
 no gui – have to use command line
 competitors – Mercurial, supervision, IBM
 OPEN SOURCE
+
 Gthub
 hosted on the cloud
 github cannot be used and needs an intternet connection
