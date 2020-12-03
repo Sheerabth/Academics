@@ -1,0 +1,9 @@
+80286 - multi user and multi tasking
+
+80286 - 16 mb main and 1gb virtual
+
+address bus is 24 bits
+
+
+each descriptor will give info abt 64k
+there are 16k descriptors
