@@ -1,0 +1,168 @@
+Caretesian Product: The Cartesian product of A and B is denoted by AB
+and equals {(a, b): aEA and bEB}. The elements of AB are
+ordered pairs. The elements of A1xA2x...xAn are ordered n-
+tuples.
+
+Binary Sets: Let A and B be sets. A binary relation from A to
+B is a subset of AxB.
+
+
+Number of subsets for a set A of size m is 2^m
+
+Number of relations for a set A of size m is 2^(m^2)
+
+There are 2^n(n-1) Reflexive relations
+
+
+A relation R on a set A is called reflexive if
+(a, a)ER for every element aEA.
+
+•A relation on a set A is called
+irreflexive if (a, a)ER for every element aEA.
+
+•A relation R on a set A is called symmetric if (b, a)ER
+whenever (a, b)ER for all a, bEA.
+
+•A relation R on a set A is called antisymmetric if
+a = b whenever (a, b)ER and (b, a)ER.
+
+•A relation R on a set A is called asymmetric if
+(a, b)ER implies that (b, a)ER for all a, bEA.
+
+
+A relation R on a set A is called transitive if
+whenever (a, b)ER and (b, c)ER, then (a, c)ER for a, b,
+cEA.
+
+
+Inverse Relation: Let R be a relation from a set A to a set B. The inverse relation from B to A,
+denoted by R^-1 , is the set of ordered pairs { (b,a) : (a,b) E R }
+
+Complimentary Relation : RC is the set of ordered pairs { (a,b) : (a,b) ∉ R}
+
+
+Relation operatoins
+
+- Union
+- Intersection
+- Difference: There in set 1 not in 2
+- Symmetric Difference: differemce of union and Intersection (symbol: triangle)
+- Composite: Let R be a relation from a set A to a set B and S a relation from B to a set C. The composite of R and S is the
+             relation consisting of ordered pairs (a, c), where aEA, cEC, and for which there exists an element bEB such that (a, b)ER and
+             (b, c)ES. We denote the composite of R and S by S*R.
+- Transitive: ThA relation R on a set A is called transitive if
+whenever (a, b)ER and (b, c)ER, then (a, c)ER for a, b, cEA.
+
+
+•To obtain the join of two zero-one matrices, we apply the
+Boolean “or” function to all corresponding elements in the
+matrices.
+
+•To obtain the meet of two zero-one matrices, we apply the
+Boolean “and” function to all corresponding elements in the
+matrices.
+
+Then the Boolean product of A and B, denoted by
+AoB, is the mn matrix with (i, j)th entry [cij], where
+cij = (ai1 ^ b1j) v (ai2 ^ b2i) v ... v (aik ^ bkj).
+
+
+Boolean Product of 2 matrices gives Composite
+
+
+• The reflexive closure of R can be formed by adding all of the
+pairs of the form (a,a) to R.
+Should add all the main diagonal matrix
+
+Should add the Inverse to make it symmetric
+
+Transitive Clousure: If there is a path from a to b, then there
+should be an edge from a to b in the transitive closure
+
+The transitive closure of R is the
+connectivity relation R*.
+
+Conditions for inverse to exist
+- One one function
+
+The domain of inverse is range of the function
+
+The graph of an inverse function can be found by
+reflecting a function in the line y=x.
+
+
+A relation on a set A is called an equivalence
+relation if it is reflexive, symmetric, and transitive.
+
+
+Let R be an equivalence relation on a set A.
+The set of all elements that are related to an element a of
+A is called the equivalence class of a.
+
+
+When only one relation is under consideration, we will
+delete the subscript R and write [a] for this equivalence
+class.
+
+
+A partition of a set S is a collection of disjoint nonempty
+subsets of S that have S as their union. In other words, the collection
+of subsets Ai, iEI, forms a partition of S if and only if
+
+• Ai != phi for iEI
+•Ai intersection Aj = phi, if i != j
+• union all Ai = S
+
+Let R be an equivalence relation on a
+set S. Then the equivalence classes of R form a partition of S.
+
+
+A relation R on a set S is called partial ordering or
+partial order if it is reflexive, antisymmetric, and
+transitive
+
+
+The elements a and b of a poset (S, ≼) are
+called comparable if either a≼b or b≼a. When
+a and b are elements of S s.t. neither a≼b nor
+b≼a, a and b are incomparable
+
+
+When every 2 elements in the set are comparable,
+the relation is called total ordering
+
+
+A Hasse diagram is a drawing that represents a partial
+order relation.
+
+
+Draw a diagram in which
+– a ≼ b is represented by a -> b; a is drawn below b.
+– Draw the digraph for the partial order
+– Remove the loops as reflexive property is implied
+– If there exists c such that a ≼ c and c ≼ b, then we
+represent only a <= c and c ≼ b; a ≼ b is implied by
+transitivity. Remove the transitive edges.
+– Remove the direction arrows. It is from bottom to top.
+– The resulting diagram is the Hasse Diagram
+
+
+A lattice is a partially ordered set in
+which every pair of elements has both
+– a least upper bound and
+– a greatest lower bound
+
+
+Topological Sorting: Algorithm
+
+Input: (S, p) a poset with |S|=n
+Output: A total ordering (a1, a2 ,..., an)
+1. k  1
+2. While S Do
+3. ak  a minimal element in S
+4. S  S \ {ak}
+5. k  k+1
+6. End
+7. Return (a1 , a2 , ..., an)
+
+

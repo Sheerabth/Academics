@@ -1,0 +1,256 @@
+Proposition : A declarative statement which is either true or false but not both.
+
+
+Exclamation, Question(interrogative),
+Order(imperative), request, Opinion – Not
+proposition
+
+
+one negation in AND then use but
+
+
+p->q
+    p is called the hypothesis,
+    antecedent, premise
+    q is called the conclusion,
+    consequence
+
+
+The implication of p  q can be also read as
+– If p then q
+– p implies q
+– If p, q
+– p only if q
+– q if p
+– q when p
+– q whenever p
+– q follows from p
+– p is a sufficient condition for q (p is sufficient for q)
+– q is a necessary condition for p (q is necessary for p)
+– q unless not p
+
+
+Precedence of Logical Operators.
+Operator Precedence
+~           1
+^           2
+v           3
+->          4
+<->         5
+
+
+Consider the proposition p -> q
+– Its converse is the proposition q -> p
+– Its inverse is the proposition ~p -> ~q
+– Its contrapositive is the proposition ~q -> ~p
+
+
+- A compound statement that is always true is a tautology
+- If a formula is uniformly false, then it is a contradiction.
+- If a formula is neither a tautology nor a contradiction then it is
+a contingency.
+
+
+• A formula is satisfiable if there is at least one assignment of truth values to
+its variables that makes the whole formula true.
+• If all assignments are true, then it is said to be valid. (Tautology)
+• If all assignments are false, then it is invalid or unsatisfiable.(contradiction)
+
+
+Propositions p and q are logically equivalent if p <-> q is a tautology.
+
+
+Conditional Equivalence laws
+• Contrapositive: P -> Q Ξ ~Q -> ~P
+• Conditional : P -> Q Ξ ~P V Q
+• Biconditional : P <-> Q Ξ (P -> Q) ^ (Q -> P)
+
+
+Logic in TCS: A Sentence in PL
+
+• A Boolean variable is a variable that can have a
+value 1 or 0. Thus, Boolean variable is a
+proposition.
+• A term is a Boolean variable
+• A literal is a term or its negation
+• A clause is a disjunction of literals
+• A sentence in PL is a conjunction of clauses
+    • A sentence in PL is satisfiable iff
+    – we can assign a truth value to each Boolean variables such that the sentence evaluates to true (i.e., holds)
+
+
+Normal Forms
+
+Whether two given compound propositions A, B are
+logically equivalent, reduce A and B to some standard
+forms called normal forms and then decide
+
+A product of the variables and their
+negations is called an elementary product.
+
+
+A sum of the variables and their negations is
+called an elementary sum
+
+
+Disjunctive Normal Form
+
+A compound proposition which consists of a
+sum of elementary products and which is
+equivalent to a given proposition is called
+disjunctive normal form (DNF) of the given
+proposition
+
+
+Conjunctive Normal Form
+
+– A compound proposition which consists of a
+product of elementary sums and which is
+equivalent to a given proposition is called
+conjunctive normal form (CNF) of the given
+proposition
+
+
+Procedure to convert to CNF or DNF
+
+1. Eliminate ->, <-> by replacing
+2. If the negation is present before a formula, apply
+Demorgan’s laws.
+3. If necessary, the distributive and idempotent laws are
+applied.
+4. If there is an elementary product which is equivalent to F
+in DNF, it is omitted. If there is an elementary sum which is
+equivalent to T in CNF, it is omitted. (Identity laws)
+
+
+MINTERM :Given a number of variables, the products in
+which each variable appears exactly once either in T or F
+form, but not in both. (Also known as a standard product
+term)
+
+
+MAXTERM :Given a number of variables, the sum in
+which each variable appears exactly once either in T or F
+form, but not in both. (Also known as a standard sum term)
+
+
+PDNF :A formula consisting of disjunction of minterms in
+the variables only and equivalent to the given formula is
+known as its Principal disjunctive normal form or Sum
+of products canonical form of the given formula
+
+
+PCNF :A formula consisting of conjunction of maxterms
+in the variables only and equivalent to the given formula is
+known as its Principal conjunctive normal form or
+Product of sums canonical form of the given formula
+
+
+Procedure to obtain PDNF of a formula
+– 1. Obtain a DNF
+– 2. To get the minterms in the disjunction, the
+missing factors are introduced through the
+complement law (P V ~P Ξ T) and then
+applying the distributive law
+– 3. Identical minterms are deleted
+
+
+If the PDNF of a formula A is known, then PDNF
+of ~A will consist of the disjunction of the
+remaining minterms which are not included in the
+PDNF of A
+• To get the PCND of A, we use A ⇔ ~(~A) and
+apply DeMorgan’s laws to the PDNF of ~A
+repeatedly
+
+
+INFERENCE
+
+An argument is a sequence of statements in which
+the conjunction of the initial statements (called the
+premises/hypotheses) is said to imply the final
+statement (called the conclusion).
+
+
+By valid argument we mean the conclusion must follow from the truth of the
+preceding statements or premises.
+
+
+In truth table technique we need to see a row where all the hypothesis are
+true then in that row the conclusion should also be true
+
+
+Equivalence rules - Allows each wff's to be rewritten
+
+Inference rules - Allows each wff's to be derived (one direction)
+
+
+• Deduction (what we use in propositions)
+– Inference based on logical certainty
+– Starts from a general principle and infers something about specific cases
+– Valid deduction guarantees the truth of the conclusion
+Eg: Grapes are poisonous to all dogs. Your dog too
+
+
+• Induction
+– Inference based on probability
+– Starts from specific information and infers the general principle
+– Truth of the conclusion is not guaranteed
+Eg. For the last two years Amanda has woken up at 6 am everyday.
+Tomorrow too.
+
+
+Abduction
+– Inference based on the best explanation
+– given a theory relating faults with their effects and a set of observed
+effects, abduction can be used to derive sets of faults that are likely to be
+the cause of the problem
+
+
+• Logical inference creates new sentences that
+logically follow from a set of sentences (KB)
+• An inference rule is sound if every sentence X it
+produces when operating on a KB logically
+follows from the KB
+– i.e., inference rule creates no contradictions
+• An inference rule is complete if it can produce
+every expression that logically follows from (is
+entailed by) the KB.
+– All valid statements can be proved
+
+
+A set of specification S1, S2, ... Sn is said
+to be inconsistent if their conjunction
+implies a contradiction
+
+
+A set of premises H1, H2, ... Hn and a
+conclusion C is given. We assume C is false
+and ~C to be true and add it with
+(H1^H2...^Hn) as (H1^H2...^Hn ^~C)
+
+
+Propositional logic
+
+• Advantages
+– Simple Knowledge Representation language
+sufficient for some problems
+– Lays the foundation for higher order logic (e.g.,
+FOL- first order logic)
+– Reasoning is decidable, though NP complete, and
+efficient techniques exist for many problems
+
+• Disadvantages
+– Not expressive enough for most problems
+– Even when it is, it can be very “un-concise”
+• Hard to identify “individuals” (e.g., Mary, 3)
+• Can’t directly talk about properties of individuals
+or relations between individuals (e.g., “Bill is
+tall”)
+• Generalizations, patterns, regularities can’t easily
+be represented (e.g., “all triangles have 3 sides”)
+• First-Order Logic (FOL) is expressive enough to
+represent this kind of information using relations,
+variables and quantifiers, e.g.,
+• Every elephant is gray: vx (elephant(x) → gray(x))
+• There is a white alligator: Ex (alligator(X) ^ white(X))

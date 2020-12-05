@@ -1,0 +1,44 @@
+Product Rule: Suppose that a procedure
+can be broken down into a sequence of two
+tasks. If there are n1 choices for the first task
+and for each of the n1 choices there are n2
+choices for the second task, then there are
+n1n2 choices to do the procedure.
+
+
+Sum Rule: If a task can be done either in one of
+n1 ways or in one of n2 ways where none of the
+set of n1 ways is the same as any of the set of n2
+ways, then there are n1 + n2 ways to do the task.
+
+
+Subtraction Rule: If a task can be done in either n1
+ways or n2 ways, then the number of ways to do the task
+is n1 + n2 minus the number of ways to do the task that
+are common to the different ways.
+
+
+Division Rule: There are n/d ways to do a task if it can
+be done by using a procedure that can be carried out in
+n ways, and for every way w exactly d of the n ways
+correspond to way w.
+
+
+•The pigeonhole principle: If (k + 1) or more objects are
+placed into k boxes, then there is at least one box
+containing two or more of the objects.
+
+
+•The generalized pigeonhole principle: If N objects are
+placed into k boxes, then there is at least one box
+containing at least ceil(N/k) of the objects.
+
+
+•A permutation of a set of distinct objects is an ordered
+arrangement of these objects.
+
+
+•An r-combination of elements of a set is an unordered
+selection of r elements from the set.
+
+

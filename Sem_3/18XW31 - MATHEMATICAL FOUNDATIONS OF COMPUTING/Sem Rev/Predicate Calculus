@@ -1,0 +1,114 @@
+Predicate logic is an extension of
+propositional logic that permits concisely
+reasoning about whole classes of entities.
+
+
+functions return whatever they want
+
+predicates return true/false
+
+
+Quantifiers allow us to quantify (count) how many
+objects in the universe of discourse satisfy a given
+predicate:
+
+
+The part of a logical expression to which a
+quantifier is applied is called the scope of
+this quantifier.
+
+
+Resolution is a valid inference rule producing a new
+clause implied by two clauses containing
+complementary literals
+
+
+Amazingly, this is the only interference rule you
+need to build a sound theorem prover
+
+
+Proof by Contradiction using resolution
+Steps:
+1. Convert the hypotheses to clauses
+2. Convert the conclusion to clause form;
+3. Assume the NEGATION of the conclusion is T.
+4. Take the first parent clause to be Neg(Conclusion) and another
+parent clause.
+5. Resolve the parent clauses and get the resolvent
+6. Continue this process until we get an empty resolvent. Then a
+contradiction has been found. If and when we find a
+contradiction, we have proved the clause.
+
+
+• If a contradiction exists, it will eventually be found.
+• If no contradiction exists, it is possible that the procedure will
+never terminate.
+• In Predicate logic, the situation is more complicated since we
+must consider all possible ways of substituting values for the
+variables.
+
+
+A FOL expression Φ can be put in prenex normal form
+by moving the quantifiers to the prefix. The quantifier free
+part of Φ is called the matrix of Φ
+
+
+Working Rule to tranform a formula into Prenex Normal Form
+
+1. Eliminate → and ↔ (transform to ∨, ^, ¬)
+2. Push negations inside using Involution,
+DeMorgan’s and the laws
+a) ~ (Vx p(x)) ⇔ Ex(~ p(x))
+b) ~ (Ex p(x)) ⇔ Vx(~ p(x))
+3. If there are name conflicts across scopes, solve
+with renaming.
+4. Use the equivalence laws (1 to 8) to move the
+quantifiers to the left of the entire formula to
+ultimately obtain in Prenex Normal Form
+
+
+Skolem Normal Form
+
+• Skolemization: procedure for systematic elimination of the
+existential quantifiers in a first-order formula in a prenex form,
+by introducing new constant and functional symbols, called
+Skolem constants and Skolem functions, in the formula and the
+matrix should be in CNF.
+
+• Rule 1: Check that no universal quantifier appear before Qr
+(Qr is an existential quantifier). Then choose a new constant
+different from other constants occurring in F and replace all xr
+appearing in the F by the constant
+
+Rule 2: If for existential quantifier Qr 
+(the quantifiers Qs1 Qs2 Qs3 .. Qsm are all universal quantifiers appearing before Qr ),
+then we choose a function f, different from other function
+symbols occurring in F and replace all xr in F by the function 
+f(xs1,xs2,...xsm) and delete Qrxr from the prefix
+
+Skolem provided a technique to convert a
+FOL sentence F into F’ in prenex normal
+form with universal quantifiers such that F
+is satisfiable iff F’ is satisfiable
+
+
+FOL with resolution is refutation complete,
+i.e. if S is a set of unsatisfiable clauses,
+then a contradiction arises after a finite
+number of resolutions.
+
+
+Unification: The process of finding all legal substitutions that make
+logical expressions look identical
+
+Procedure to Resolution theorem proving
+
+1. Convert Hypothesis to Clause form
+– 2. Convert conclusion to clause form
+– 3. Start with Neg(Conclusion) as parent1 and choose
+parent2
+– 4. Resolve using unification; If an empty resolvent is
+found, then return success.
+– 5. If not possible return failure.
+– 6. Use the resolvent as a parent and continue the
+process.
