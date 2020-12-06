@@ -42,3 +42,18 @@ arrangement of these objects.
 selection of r elements from the set.
 
 
+DISTINGUISHABLE OBJECTS AND DISTINGUISHABLE BOXES - 
+The number of ways to distribute n distinguishable objects into k distinguishable boxes so
+that ni objects are placed into box i, i = 1, 2, ... , k, equals
+n!/n1! n2 ! ⋯ nk !
+
+
+INDISTINGUISHABLE OBJECTS AND DISTINGUISHABLE BOXES - 
+n obj into k boxes - (n+k+1) C n
+
+
+DISTINGUISHABLE OBJECTS AND INDISTINGUISHABLE BOXES - 
+picture
+
+
+INDISTINGUISHABLE OBJECTS AND INDISTINGUISHABLE BOXES

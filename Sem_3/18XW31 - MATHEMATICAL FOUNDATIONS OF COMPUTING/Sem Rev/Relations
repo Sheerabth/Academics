@@ -13,6 +13,10 @@ Number of relations for a set A of size m is 2^(m^2)
 
 There are 2^n(n-1) Reflexive relations
 
+Number of functions is range^domain
+
+Number of one one functions is range P domain
+
 
 A relation R on a set A is called reflexive if
 (a, a)ER for every element aEA.
@@ -84,6 +88,7 @@ connectivity relation R*.
 
 Conditions for inverse to exist
 - One one function
+- Onto funtion
 
 The domain of inverse is range of the function
 
