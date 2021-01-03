@@ -1,0 +1,150 @@
+Data Mining
+
+    -Data mining is a process of discovering patterns in large data sets involving methods at the intersection of machine learning, statistics, and database systems
+    -Data mining is a process used by companies to turn raw data into useful information. By using software to
+     look for patterns in large batches of data, businesses can learn more about their customers to develop 
+     more effective marketing strategies, increase sales and decrease costs
+
+Image Processing
+
+    -Digital image processing is the use of a digital computer to process digital images through an algorithm. 
+    As a subcategory or field of digital signal processing, digital image processing has many advantages over analog image processing.
+    -Image processing is a method to perform some operations on an image, in order to get an enhanced image or 
+    to extract some useful information from it. It is a type of signal processing in which input is an image and output may be image
+    or characteristics/features associated with that image. Nowadays, image processing is among rapidly growing technologies. It 
+    forms core research area within engineering and computer science disciplines too.
+
+Cloud Computing
+
+    -Cloud computing is the on-demand availability of computer system resources, especially data storage (cloud storage) 
+    and computing power, without direct active management by the user.[1] The term is generally used to describe data centers 
+    available to many users over the Internet.[2] Large clouds, predominant today, often have functions distributed over multiple 
+    locations from central servers. If the connection to the user is relatively close, it may be designated an edge server.
+
+Soft Computing
+
+    -Soft computing is the use of approximate calculations to provide imprecise but usable solutions to complex computational 
+    problems. The approach enables solutions for problems that may be either unsolvable or just too time-consuming to solve with current hardware.
+
+
+NLP
+    -Natural language processing (NLP) is a subfield of linguistics, computer science, and artificial intelligence concerned with the 
+    interactions between computers and human language, in particular how to program computers to process and analyze large amounts of
+    natural language data.
+
+Fuzzy logic
+
+    -Fuzzy logic is an approach to computing based on "degrees of truth" rather than the usual "true or false" (1 or 0) Boolean 
+    logic on which the modern computer is based. The idea of fuzzy logic was first advanced by Dr. Lotfi Zadeh of the University 
+    of California at Berkeley in the 1960s.
+    -In fuzzy mathematics, fuzzy logic is a form of many-valued logic in which the truth values of variables may be any real number
+     between 0 and 1 both inclusive. It is employed to handle the concept of partial truth, where the truth value may range between 
+      true and completely false.[1] By contrast, in Boolean logic, the truth values of variables may only be the integer values 0 or 1.
+
+IOT
+    -The Internet of things (IoT) describes the network of physical objects—“things”—that are embedded with sensors, software, and other 
+    technologies for the purpose of connecting and exchanging data with other devices and systems over the Internet.
+
+BlockChain
+    -A blockchain,[1][2][3] originally block chain,[4][5] is a growing list of records, called blocks, that are linked using cryptography.
+    [1][6] Each block contains a cryptographic hash of the previous block,[6] a timestamp, and transaction data (generally represented as a Merkle tree).
+
+cryptography
+    -The conversion of data into a secret code for transmission over a public network. Today, most cryptography is digital, and the original text ("plaintext") 
+    is turned into a coded equivalent called "ciphertext" via an encryption algorithm. The ciphertext is decrypted at the receiving end and turned back into plaintext.
+
+Distributed Computing
+    -Distributed computing is a model in which components of a software system are shared among multiple computers. Even though
+     the components are spread out across multiple computers, they are run as one system. This is done in order to improve efficiency
+     and performance. 
+
+Computational learning theory
+    -In computer science, computational learning theory (or just learning theory) is a subfield 
+    of artificial intelligence devoted to studying the design and analysis of machine learning algorithms.[1]
+    -Theoretical results in machine learning mainly deal with a type of inductive learning called supervised learning. 
+    In supervised learning, an algorithm is given samples that are labeled in some useful way. For example, the samples
+    might be descriptions of mushrooms, and the labels could be whether or not the mushrooms are edible. The algorithm 
+    takes these previously labeled samples and uses them to induce a classifier. This classifier is a function that assigns
+    labels to samples, including samples that have not been seen previously by the algorithm. The goal of the supervised
+    learning algorithm is to optimize some measure of performance such as minimizing the number of mistakes made on new samples.
+
+Big data
+    -Big data is a field that treats ways to analyze, systematically extract information from, or 
+    otherwise deal with data sets that are too large or complex to be dealt with by traditional data-processing 
+    application software. Data with many cases (rows) offer greater statistical power, while data 
+    with higher complexity (more attributes or columns) may lead to a higher false discovery rate.[2] 
+    Big data challenges include capturing data, data storage, data analysis, search, sharing,
+     transfer, visualization, querying, updating, information privacy and data source. Big data
+      was originally associated with three key concepts: volume, variety, and velocity. When we 
+      handle big data, we may not sample but simply observe and track what happens. Therefore, big data often 
+      includes data with sizes that exceed the capacity of traditional software to process within an acceptable 
+      time and value.
+    
+Neural Networks
+    -Neural networks are a series of algorithms that mimic the operations of a human
+     brain to recognize relationships between vast amounts of data.
+     -They are used in a variety of applications in financial services, 
+     from forecasting and marketing research to fraud detection and risk assessment.
+    -An ANN is based on a collection of connected units or nodes called artificial 
+    neurons, which loosely model the neurons in a biological brain. Each connection, 
+    like the synapses in a biological brain, can transmit a signal to other neurons. 
+    An artificial neuron that receives a signal then processes it and can signal neurons
+    connected to it. The "signal" at a connection is a real number, and the output 
+    each neuron is computed by some non-linear function of the sum of its inputs. 
+    The connections are called edges. Neurons and edges typically have a weight that
+    adjusts as learning proceeds. The weight increases or decreases the strength of 
+    the signal at a connection. Neurons may have a threshold such that a signal is sent 
+    only if the aggregate signal crosses that threshold. Typically, neurons are aggregated
+    into layers. Different layers may perform different transformations on their inputs. 
+    Signals travel from the first layer (the input layer), to the last layer (the output layer),
+    possibly after traversing the layers multiple times.
+
+
+Graph theory 
+    -In computer science, graphs are used to represent networks of 
+    communication, data organization, computational devices, the flow of computation, 
+    etc. For instance, the link structure of a website can be represented by a directed graph,
+    in which the vertices represent web pages and directed edges represent links from one page
+    to another. A similar approach can be taken to problems in social media,[9] travel, biology,
+    computer chip design, mapping the progression of neuro-degenerative diseases,[10][11] and 
+    many other fields. The development of algorithms to handle graphs is therefore of major interest
+    in computer science. The transformation of graphs is often formalized and
+    represented by graph rewrite systems. Complementary to graph transformation systems 
+    focusing on rule-based in-memory manipulation of graphs are graph databases geared towards 
+    transaction-safe, persistent storing and querying of graph-structured data.
+
+Number theory
+    -Number theory (or arithmetic or higher arithmetic in older usage) is a branch of
+     pure mathematics devoted primarily to the study of the integers and integer-valued functions. 
+     German mathematician Carl Friedrich Gauss (1777–1855) said, "Mathematics is the queen of the 
+     sciences—and number theory is the queen of mathematics."[1] Number theorists study prime numbers as 
+     well as the properties of mathematical objects made out of integers 
+     (for example, rational numbers) or defined as generalizations of the integers (for example, algebraic integers).
+    
+Software Development
+    -Software development is the process of conceiving, specifying, designing, programming,
+    documenting, testing, and bug fixing involved in creating and maintaining applications, 
+    frameworks, or other software components.
+
+Web Development
+    -Web development is the work involved in developing a Web site for the Internet (World Wide Web)
+    or an intranet (a private network).[1] Web development can range from developing a simple single
+    static page of plain text to complex Web-based Internet applications (Web apps), electronic businesses,
+    and social network services. A more comprehensive list of tasks to which Web development commonly 
+    refers, may include Web engineering, Web design, Web content development, client liaison, client-side/server-side
+    scripting, Web server and network security configuration, and e-commerce development.
+
+Compiler Design/Organisation
+    - Design and make compilers
+
+Operating Systems
+    -The operating system domain contains units that represent operating systems, users, user groups, 
+    file systems, folders, and files in topologies. The domain includes units for a generic operating 
+    system and units for specific types of operating systems.
+    -Operating system units have membership links to users, user groups, and file systems; file systems can 
+    have membership links to one or more files and directories.
+
+Data Compression
+    -https://en.wikipedia.org/wiki/Data_compression
+
+
