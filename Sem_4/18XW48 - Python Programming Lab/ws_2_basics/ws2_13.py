@@ -1,37 +1,18 @@
-import random
-
-def duplicates(lst, item):
-    return [i for i, x in enumerate(lst) if x == item]
-
-if __name__ == '__main__':
-    words = ['hangman','random','please','happy','sad']
-    word = random.choice(words)
-    guess_count = 6
-    word_now = ['_' for x in range(len(word)) ]
-    print('Welcome to Hangman!')
-    print(" ".join(word_now))
-    while guess_count != 0:
-        print(f'Chances left - {guess_count}')
-        char = input('Guess your letter : ').lower()
-        if char not in word :
-            if guess_count > 1 :
-                print('Incorrect!')
-            else :
-                print('Lost :(')
-            guess_count += -1
-            
-        else :
-            pos_list = duplicates(word,char)
-            for x in pos_list:
-                if word_now[x] == '_':
-                    word_now[x] = char
-                else :
-                    print('Guessed already !')
-                    break
-            print(" ".join(word_now))
-        
-        if '_' not in word_now :
-            print('Won!')
-            break
-
-    print('Game Over!')
+if __name__ == "__main__":
+    word_list = list("EVAPORATE")
+    guessed_letters = []
+    present_list = ['-' for _ in range(len(word_list))]
+    print("Welcome to HANGMAN !!!!")
+    while str(present_list) != str(word_list):
+        guessed = input("Please enter the letter: ")
+        if guessed in guessed_letters:
+            print("The letter " + guessed + " is alredy guessed.")
+            continue
+        guessed_letters.append(guessed)
+        indices = [index for index, val in enumerate(word_list) if val == guessed]
+        if(len(indices) == 0):
+            print("Sorry the guessed letter is not present in the list. " + "The word is now: " + "".join(present_list))
+        for index in indices:
+            present_list[index] = guessed
+        print("You guessed the correct letter !! " + "The word is now: " + "".join(present_list))
+    print("Congrats you have guessed the word !!!!!")
