@@ -12,4 +12,4 @@ if __name__ == "__main__":
     printable_list = list(string.printable)
     for _ in range(6):
         printable_list.pop()
-    print(get_random_password(printable_list))
+    print("The generarted password is " + get_random_password(printable_list))
