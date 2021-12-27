@@ -32,6 +32,13 @@ class ClientHandler implements Runnable {
     @Override
     public void run() {
         try {
+            for(Socket clientSocket: ClientList.clientList) {
+                if (!clientSocket.equals(this.socket)) {
+                    DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
+                    out.writeUTF(socket + " has joined the chat");
+                }
+//                          out.close();
+            }
             in = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
             String line = "";
             
@@ -44,13 +51,16 @@ class ClientHandler implements Runnable {
                     }
                     System.out.println("Message sent by " + socket + ": " + line);
                     for(Socket clientSocket: ClientList.clientList) {
-                        DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
-                        out.writeUTF(line);
+                        if (!clientSocket.equals(this.socket)) {
+                            DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
+                            out.writeUTF(line);
+                        }
 //                          out.close();
                     }
                 }
                 catch (IOException ex) {
-                    Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
+                    break;
+                    // Logger.getLogger(Server.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             System.out.println("Closing connection with " + socket);

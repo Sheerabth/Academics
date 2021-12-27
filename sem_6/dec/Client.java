@@ -34,7 +34,8 @@ class Receiver implements Runnable {
                     System.out.println("Message received from " + socket + ": " + line);
                 }
                 catch (IOException ex) {
-                    Logger.getLogger(Receiver.class.getName()).log(Level.SEVERE, null, ex);
+                    break;
+                    // Logger.getLogger(Receiver.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             in.close();
@@ -78,7 +79,8 @@ public class Client {
                 out.writeUTF(line);
             } 
             catch (IOException ex) {
-                Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                // Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+                break;
             }
         }
         try {
