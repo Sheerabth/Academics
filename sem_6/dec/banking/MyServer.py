@@ -22,29 +22,30 @@ def ClientHandler(lock, conn, address):
         data = conn.recv(1024).decode()
         action = data.split()
         message = ""
-        if action[0] == "deposit":
-            lock.acquire()
-            amount = float(action[1])
-            response = deposit(address, amount)
-            message = "Remaining Credit: " + str(response)
-            lock.release()
-
-        elif action[0] == "withdraw":
-            lock.acquire()
-            amount = float(action[1])
-            response = withdraw(address, amount)
-            if response == -1:
-                message = "Not enough credit"
-            else:
+        if len(action) > 0:
+            if action[0] == "deposit":
+                lock.acquire()
+                amount = float(action[1])
+                response = deposit(address, amount)
                 message = "Remaining Credit: " + str(response)
-            lock.release()
+                lock.release()
+
+            elif action[0] == "withdraw":
+                lock.acquire()
+                amount = float(action[1])
+                response = withdraw(address, amount)
+                if response == -1:
+                    message = "Not enough credit"
+                else:
+                    message = "Remaining Credit: " + str(response)
+                lock.release()
+            
+            elif action[0] == "exit":
+                print("Disconnected: ", address)
+                conn.close()
+                break
         
-        elif action[0] == "exit":
-            print("Disconnected: ", address)
-            conn.close()
-            break
-        
-        conn.send(message.encode())
+            conn.send(message.encode())
 
 def MyServer(host, port):
     server_socket = socket.socket()
@@ -52,11 +53,15 @@ def MyServer(host, port):
     lock = threading.Lock()
 
     while True:
-        server_socket.listen(2)
-        conn, address = server_socket.accept()
-        if address not in account:
-            account[address] = 1000
+        try:
+            server_socket.listen(2)
+            conn, address = server_socket.accept()
+            if address not in account:
+                account[address] = 1000
 
-        threading.Thread(target=ClientHandler, args=(lock, conn, address)).start()
+            threading.Thread(target=ClientHandler, args=(lock, conn, address)).start()
+
+        except KeyboardInterrupt:
+            break
 
 MyServer("localhost", 9999)
