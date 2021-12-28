@@ -40,6 +40,7 @@ def ClientHandler(lock, conn, address):
             lock.release()
         
         elif action[0] == "exit":
+            print("Disconnected: ", address)
             conn.close()
             break
         
@@ -56,7 +57,6 @@ def MyServer(host, port):
         if address not in account:
             account[address] = 1000
 
-        threading.Thread(target=ClientHandler, args=(lock, conn, address, account)).start()
+        threading.Thread(target=ClientHandler, args=(lock, conn, address)).start()
 
-if '__name__' == '__main__':
-    MyServer("localhost", 9999)
+MyServer("localhost", 9999)
