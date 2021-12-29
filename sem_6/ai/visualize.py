@@ -101,7 +101,7 @@ class Graph:
 
 		# Draw nodes and edges included in path
 		nx.draw_networkx_nodes(Gr, pos, nodelist=path, node_color='r')
-		nx.draw_networkx_edges(Gr,pos,edgelist=path_edges,edge_color='r', connectionstyle='arc3, rad = 0.3')
+		nx.draw_networkx_edges(Gr, pos, edgelist=path_edges, edge_color='r', connectionstyle='arc3, rad = 0.3')
 
 		# Draw labels
 		nx.draw_networkx_labels(Gr,pos)
