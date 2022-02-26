@@ -72,7 +72,7 @@ class Graph:
 						path.append(node)
 						if node == end:
 							self.visualize(path)
-							return
+							returny
 						visited.add(node)
 						queue.append(node)
 			elif start in path:
@@ -82,6 +82,7 @@ class Graph:
 		self.visualize([])
 
 	def visualize(self, path):
+		print(path)
 		# Set up graph
 		Gr = nx.DiGraph() 
 		# edges = [(i+1, i+2) for i in range(10)] + [(i+2, i+1) for i in range(10)]
@@ -117,4 +118,4 @@ G.addEdge(1, 3)
 G.addEdge(5, 3)
 G.addEdge(3, 4)
 G.addEdge(1, 0)
-G.dfs(5, 4)
+G.dfs(2, 4)
