@@ -72,7 +72,7 @@ class Graph:
 						path.append(node)
 						if node == end:
 							self.visualize(path)
-							returny
+							return
 						visited.add(node)
 						queue.append(node)
 			elif start in path:
