@@ -113,7 +113,7 @@ dist
 
 
 ### Custom ignores
-
+__pycache__/
 
 # Package lock
 package-lock.json
