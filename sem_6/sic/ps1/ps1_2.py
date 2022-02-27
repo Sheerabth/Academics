@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 22 11:14:43 2022
-
-@author: 19pw33
-"""
-
 class PermutationCipher:
     
     def __init__(self, col_size: str):

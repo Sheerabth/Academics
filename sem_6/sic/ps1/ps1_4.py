@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 22 12:03:36 2022
-
-@author: 19pw33
-"""
 import math
 
 class AffineCipher:
@@ -44,3 +38,9 @@ class AffineCipher:
                 dec_text += chr(result)
 
         return dec_text
+
+
+if __name__ == "__main__":
+    affine_cipher = AffineCipher(5, 8)
+    encrypted = affine_cipher.decrypt("WZU SAAL")
+    print(encrypted)

@@ -1,13 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Dec 21 10:54:09 2021
-
-@author: 19pw33
-"""
-
 from collections import OrderedDict
 from string import ascii_lowercase
-from types import coroutine
 
 def generate_key_table(key):
     alphabets = list(ascii_lowercase)
