@@ -1,5 +1,8 @@
+from pydoc import plain
+from sre_constants import CHCODES
 from string import ascii_lowercase
-
+from pprint import pprint
+from turtle import st
 
 class KeywordCipher:
     def __init__(self, keyword) -> None:
@@ -31,4 +34,75 @@ class KeywordCipher:
 
 class ColumnarTransposition:
     def __init__(self) -> None:
-        pass
+        self.cipher = ''
+
+    def clense(self, plain_text: str) -> str:
+        clean_plain_text = ''
+        for character in plain_text.lower():
+            if character.isalpha():
+                clean_plain_text += character
+
+        return clean_plain_text
+
+    def unique(self, plain_text: str) -> str:
+        unique_plain_text = ''
+        for character in plain_text:
+            if character not in unique_plain_text:
+                unique_plain_text += character
+
+        return unique_plain_text
+
+
+    def generate_cipher(self, plain_text: str) -> None:
+        cleansed = self.unique(self.clense(plain_text))
+
+        columnar_matrix = list()
+        columnar_matrix.append(cleansed)
+        alphabet_list = list()
+        for index in range(26):
+            if ascii_lowercase[index] not in cleansed:
+                alphabet_list.append(ascii_lowercase[index])
+
+            if len(alphabet_list) == len(cleansed) or index == 25:
+                columnar_matrix.append(alphabet_list)
+                alphabet_list = list()
+
+        for j in range(len(cleansed)):
+            for i in range(len(columnar_matrix)):
+                if i == len(columnar_matrix)-1 and j >= len(columnar_matrix[-1]):
+                    break
+                self.cipher += columnar_matrix[i][j]
+
+
+    def encrypt(self, plain_text: str) -> str:
+        cleansed = self.clense(plain_text)
+        cipher_text = ''
+        for character in plain_text.lower():
+            if character in cleansed:
+                cipher_text += self.cipher[ascii_lowercase.index(character)]
+            else:
+                cipher_text += character
+
+        return cipher_text
+
+
+    def decrypt(self, cipher_text: str) -> str:
+        cleansed = self.clense(cipher_text)
+        plain_text = ''
+        for character in cipher_text.lower():
+            if character in cleansed:
+                plain_text += ascii_lowercase[self.cipher.index(character)]
+            else:
+                plain_text += character
+
+        return plain_text
+
+if __name__ == "__main__":
+    cipher = ColumnarTransposition()
+    plain_text = "CORNELL"
+    cipher.generate_cipher(plain_text)
+    cipher_text = cipher.encrypt("FAR ABOVE CAYUGA’S WATERS")
+    print(cipher_text)
+    print(cipher.decrypt(cipher_text))
+
+
