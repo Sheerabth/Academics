@@ -1,5 +1,4 @@
 from __future__ import annotations
-from concurrent.futures import thread
 from threading import Lock
 
 
