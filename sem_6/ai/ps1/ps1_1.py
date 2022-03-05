@@ -76,7 +76,7 @@ class Graph:
             return path
         for neighbour in self.adj_list[start]:
             if neighbour not in visited:
-                result = self.dfs(neighbour, target, depth_limit, depth + 1, path, visited)
+                result = self.dls(neighbour, target, depth_limit, depth + 1, path, visited)
                 if result is not None:
                     return result
         path.pop()
