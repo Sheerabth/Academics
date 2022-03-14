@@ -1,5 +1,4 @@
-from string import ascii_lowercase
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
@@ -10,21 +9,17 @@ app.add_middleware(CORSMiddleware, allow_origins="*", allow_methods="*")
 
 users = dict()
 
-@app.post("/")
+@app.post("/register")
 def register(credentials: UserSchema):
     users[credentials.username] = credentials.password
     return users[credentials.username]
 
-
-@app.get("/")
-def crack(username: str):
-    for first_character in ascii_lowercase:
-        for second_character in ascii_lowercase:
-            for third_character in ascii_lowercase:
-                for fourth_character in ascii_lowercase:
-                    password = first_character + second_character + third_character + fourth_character
-                    if users[username] == password:
-                        return {"password": password}
+@app.post("/login")
+def login(credentials: UserSchema):
+    if users[credentials.username] == credentials.password:
+        return {"status_code": 200, "detail": users[credentials.username]}
+    
+    return HTTPException(400)
 
 
 if __name__ == "__main__":
