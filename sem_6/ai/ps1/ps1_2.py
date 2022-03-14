@@ -1,4 +1,9 @@
 from gettext import find
+from multiprocessing.sharedctypes import Value
+from tkinter import N
+from tkinter.messagebox import NO
+from turtle import distance
+from unittest.mock import patch
 from graph import Graph
 from typing import List, Set, Union
 
@@ -6,7 +11,22 @@ from typing import List, Set, Union
 class AStar:
     def __init__(self, graph: Graph) -> None:
         self.graph = graph
+        self.cost = dict()
         self.heuristic = dict()
+
+    def calculate_utility(self, start: int, end: int) -> None:
+        self.calculate_cost(start, end)
+        self.calculate_heuristic(start, end)
+
+    def calculate_cost(self, start: int, end: int, distance: int = 0) -> None:
+        self.cost[start] = distance
+
+        if start == end or start not in self.graph.adj_list:
+            return
+
+        for neighbour in self.graph.adj_list[start]:
+            self.calculate_cost(neighbour, end, distance + 1)
+
 
     def calculate_heuristic(self, start: int, end: int) -> Union[None, int]:
         if start in self.heuristic:
@@ -26,31 +46,39 @@ class AStar:
             if result is not None:
                 distances.append(self.heuristic[neighbour])
 
+        if len(distances) == 0:
+            self.heuristic[start] = None
+            return None
+
         self.heuristic[start] = min(distances) + 1
         return self.heuristic[start]
+ 
 
-    def find(self, start: int, end: int, distance: int = 0, path: List = list()) -> List[int]:
+    def find(self, start: int, end: int) -> List[int]:
+        self.calculate_heuristic(start, end)
+        path = list()
         path.append(start)
-        if start == end:
-            return path
+        current_node = start
 
-        next_node = 
-        for neighbour in self.adj_list[start]:
-            result = min([find()])
-            if result is not None:
-                return result
-        path.pop()
-        return None
+        while current_node != end:
+            neighbours_heuristic = {key: value for (key, value) in self.heuristic.items() if key in self.graph.adj_list[current_node] and value is not None}
+            neighbours_utility = {key: value + self.cost[key] for (key, value) in neighbours_heuristic.items()}
+            current_node = min(neighbours_utility, key=neighbours_utility.get)
+            path.append(current_node)
+
+        return path
 
 
 if __name__ == "__main__":
     g = Graph()
     g.addEdge(0, 1)
     g.addEdge(0, 2)
-    g.addEdge(1, 3)
+    g.addEdge(1, 7)
     g.addEdge(2, 5)
     g.addEdge(5, 3)
     g.addEdge(3, 4)
     a_star = AStar(g)
-    a_star.calculate_heuristic(0, 4)
+    a_star.calculate_utility(0, 4)
     print(a_star.heuristic)
+    print(a_star.cost)
+    print(a_star.find(0, 4))
