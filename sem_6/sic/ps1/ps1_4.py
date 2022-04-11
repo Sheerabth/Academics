@@ -1,5 +1,6 @@
 import math
 
+
 class AffineCipher:
     def __init__(self, a, b) -> None:
         self.a = a
@@ -12,7 +13,7 @@ class AffineCipher:
                 enc_text += character
                 continue
 
-            result = ((self.a*(ord(character.lower()) - 97) + self.b) % 26) + 97
+            result = ((self.a * (ord(character.lower()) - 97) + self.b) % 26) + 97
 
             if character.isupper():
                 enc_text += chr(result).upper()
@@ -28,12 +29,13 @@ class AffineCipher:
                 dec_text += character
                 continue
 
-            result = int((math.pow(self.a, -1)*(ord(character.lower()) - 97)) % 26) + 97
-            print(result)
+            result = (
+                int((math.pow(self.a, -1) * (ord(character.lower()) - 97)) % 26) + 97
+            )
 
             if character.isupper():
                 dec_text += chr(result).upper()
-            
+
             else:
                 dec_text += chr(result)
 
@@ -42,5 +44,12 @@ class AffineCipher:
 
 if __name__ == "__main__":
     affine_cipher = AffineCipher(5, 8)
-    encrypted = affine_cipher.decrypt("WZU SAAL")
-    print(encrypted)
+    plain_text = "ITS COOOL"
+    cipher_text = affine_cipher.encrypt(plain_text)
+    print("Plain Text:", plain_text)
+    print("Cipher Text:", cipher_text)
+
+    encrypted = "HPCCXAQ"
+    decrypted = affine_cipher.decrypt(encrypted)
+    print("Encrypted:", encrypted)
+    print("Decrypted:", decrypted)
