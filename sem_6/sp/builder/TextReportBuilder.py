@@ -1,13 +1,13 @@
 from Builder import Builder
 
-class TextReportBuilder(Builder):
 
+class TextReportBuilder(Builder):
     def __init__(self) -> None:
-        self.report = ''
+        self.report = ""
 
     def add_header(self):
         self.report += "Text Report:\n"
-    
+
     def add_mean(self, value):
         self.report += "Mean {}\n".format(value)
 

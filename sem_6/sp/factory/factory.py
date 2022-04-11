@@ -6,12 +6,12 @@ class ServicesFactory(ABC):
     @abstractmethod
     def get_service(self) -> Service:
         pass
-	
-	
-class AWSFactory(ServicesFactory):	
+
+
+class AWSFactory(ServicesFactory):
     def get_service(self) -> Service:
         return AWS()
-	
+
 
 class AzureFactory(ServicesFactory):
     def get_service(self) -> Service:

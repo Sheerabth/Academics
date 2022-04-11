@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
+
 class Builder(ABC):
-    
     @abstractmethod
     def add_header(self):
         pass
@@ -23,4 +23,4 @@ class Builder(ABC):
         pass
 
     def build(self):
-        return ''
+        return ""

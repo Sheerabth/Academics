@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Drink:
     @abstractmethod
     def name(self) -> str:
@@ -7,11 +8,10 @@ class Drink:
 
     @abstractmethod
     def cost(self) -> int:
-        pass 
+        pass
 
 
 class Coffee:
-
     def name(self) -> str:
         return "Coffee"
 
@@ -20,7 +20,6 @@ class Coffee:
 
 
 class Tea:
-
     def name(self) -> str:
         return "Tea"
 

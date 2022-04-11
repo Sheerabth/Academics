@@ -1,8 +1,8 @@
 from drink import Drink
 from abc import abstractmethod
 
-class DrinkDecorator(Drink):
 
+class DrinkDecorator(Drink):
     def __init__(self, drink: Drink) -> None:
         self.drink = drink
 
@@ -16,7 +16,6 @@ class DrinkDecorator(Drink):
 
 
 class CocoaPaste(DrinkDecorator):
-
     def name(self) -> str:
         return self.drink.name() + " with Cocoa Paste"
 
@@ -25,7 +24,6 @@ class CocoaPaste(DrinkDecorator):
 
 
 class Caramel(DrinkDecorator):
-
     def name(self) -> str:
         return self.drink.name() + " with Caramel"
 
@@ -34,7 +32,6 @@ class Caramel(DrinkDecorator):
 
 
 class Milk(DrinkDecorator):
-
     def name(self) -> str:
         return self.drink.name() + " with milk"
 
@@ -43,7 +40,6 @@ class Milk(DrinkDecorator):
 
 
 class FizzyWater(DrinkDecorator):
-
     def name(self) -> str:
         return self.drink.name() + " Fizzy Water"
 
