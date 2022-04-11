@@ -21,7 +21,6 @@ class AStar:
         for neighbour in self.graph.adj_list[start]:
             self.calculate_cost(neighbour, end, distance + 1)
 
-
     def calculate_heuristic(self, start: int, end: int) -> Union[None, int]:
         if start in self.heuristic:
             return self.heuristic[start]
@@ -33,7 +32,7 @@ class AStar:
         if start not in self.graph.adj_list:
             self.heuristic[start] = None
             return None
-        
+
         distances = list()
         for neighbour in self.graph.adj_list[start]:
             result = self.calculate_heuristic(neighbour, end)
@@ -46,7 +45,6 @@ class AStar:
 
         self.heuristic[start] = min(distances) + 1
         return self.heuristic[start]
- 
 
     def find(self, start: int, end: int) -> List[int]:
         self.calculate_heuristic(start, end)
@@ -55,8 +53,15 @@ class AStar:
         current_node = start
 
         while current_node != end:
-            neighbours_heuristic = {key: value for (key, value) in self.heuristic.items() if key in self.graph.adj_list[current_node] and value is not None}
-            neighbours_utility = {key: value + self.cost[key] for (key, value) in neighbours_heuristic.items()}
+            neighbours_heuristic = {
+                key: value
+                for (key, value) in self.heuristic.items()
+                if key in self.graph.adj_list[current_node] and value is not None
+            }
+            neighbours_utility = {
+                key: value + self.cost[key]
+                for (key, value) in neighbours_heuristic.items()
+            }
             current_node = min(neighbours_utility, key=neighbours_utility.get)
             path.append(current_node)
 
@@ -68,7 +73,6 @@ class HillClimbing:
         self.graph = graph
         self.utility = dict()
 
-    
     def calculate_utility(self, start: int, end: int) -> Union[None, int]:
         if start in self.utility:
             return self.utility[start]
@@ -80,7 +84,7 @@ class HillClimbing:
         if start not in self.graph.adj_list:
             self.utility[start] = None
             return None
-        
+
         distances = list()
         for neighbour in self.graph.adj_list[start]:
             result = self.calculate_utility(neighbour, end)
@@ -101,7 +105,11 @@ class HillClimbing:
         current_node = start
 
         while current_node != end:
-            neighbours_utility = {key: value for (key, value) in self.utility.items() if key in self.graph.adj_list[current_node] and value is not None}
+            neighbours_utility = {
+                key: value
+                for (key, value) in self.utility.items()
+                if key in self.graph.adj_list[current_node] and value is not None
+            }
             current_node = min(neighbours_utility, key=neighbours_utility.get)
             path.append(current_node)
 

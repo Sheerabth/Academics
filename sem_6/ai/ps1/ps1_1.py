@@ -1,11 +1,10 @@
 from queue import Queue
 
-class Graph:
 
+class Graph:
     def __init__(self):
         self.adj_list = dict()
         self.edges = list()
-
 
     def addEdge(self, start, end):
         if start not in self.adj_list:
@@ -18,8 +17,7 @@ class Graph:
 
         self.adj_list[end].append(start)
 
-
-    def dfs(self, start, target, path = list(), visited = set()):
+    def dfs(self, start, target, path=list(), visited=set()):
         path.append(start)
         visited.add(start)
         if start == target:
@@ -32,14 +30,13 @@ class Graph:
         path.pop()
         return None
 
-
     def bfs(self, start, target):
         visited = set()
         queue = Queue()
 
         queue.put(start)
         visited.add(start)
-        
+
         parent = dict()
         parent[start] = None
 
@@ -55,40 +52,41 @@ class Graph:
                     queue.put(next_node)
                     parent[next_node] = current
                     visited.add(next_node)
-                    
+
         path = list()
         if path_found:
             path.append(target)
             while parent[target] is not None:
-                path.append(parent[target]) 
+                path.append(parent[target])
                 target = parent[target]
             path.reverse()
         return path
 
-    
-    def dls(self, start, target, depth_limit, depth = 0, path = list(), visited = set()):
+    def dls(self, start, target, depth_limit, depth=0, path=list(), visited=set()):
         if depth > depth_limit:
             return None
-        
+
         path.append(start)
         visited.add(start)
         if start == target:
             return path
         for neighbour in self.adj_list[start]:
             if neighbour not in visited:
-                result = self.dls(neighbour, target, depth_limit, depth + 1, path, visited)
+                result = self.dls(
+                    neighbour, target, depth_limit, depth + 1, path, visited
+                )
                 if result is not None:
                     return result
         path.pop()
         return None
-        
-    
+
     def ids(self, start, target, depth_limit):
-        
+
         for i in range(depth_limit):
             path = self.dls(start, target, i)
-            if path: return path
-        
+            if path:
+                return path
+
         return None
 
 
