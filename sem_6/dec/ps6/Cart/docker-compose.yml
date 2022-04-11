@@ -1,0 +1,12 @@
+version: '3.3'
+services:
+  mongo:
+    container_name: MongoDB
+    image: mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $DATABASE_USER
+      MONGO_INITDB_ROOT_PASSWORD: $DATABASE_PASSWORD
+      MONGO_INITDB_DATABASE: $DATABASE_NAME
+    ports:
+      - '27017:27017'

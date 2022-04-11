@@ -1,12 +1,13 @@
 import Pyro4
 
+
 @Pyro4.expose
 class Server:
     def __init__(self, candidates_file):
         self.__candidates_list = dict()
         self.__voters_list = dict()
         self.__current_id = 0
-        
+
         candidates = open(candidates_file, "r")
         for candidate in candidates.readlines():
             self.__candidates_list[candidate.strip()] = 0
@@ -17,9 +18,9 @@ class Server:
             return
 
         voter_id = "V" + str(self.__current_id).zfill(3)
-        self.__voters_list[voter_id] =  (name, False)
+        self.__voters_list[voter_id] = (name, False)
 
-        self.__current_id += 1;
+        self.__current_id += 1
 
         return voter_id
 
@@ -42,8 +43,10 @@ class Server:
 
     def announce_winner(self):
         return max(self.__candidates_list, key=self.__candidates_list.get)
- 
+
 
 if __name__ == "__main__":
-    server = Server("/mnt/Academics/repos/Academics/sem_6/dec/voting/candidates_list.txt")
+    server = Server(
+        "./sem_6/dec/ps2/voting/candidates_list.txt"
+    )
     Pyro4.Daemon.serveSimple({server: "voting_server"}, ns=True, verbose=True)

@@ -1,20 +1,23 @@
 import socket
 import threading
 
-account =  dict()
+account = dict()
+
 
 def withdraw(address, amount):
     if account[address] < amount:
         return -1
-    
+
     account[address] = account[address] - amount
 
     return account[address]
+
 
 def deposit(address, amount):
     account[address] = account[address] + amount
 
     return account[address]
+
 
 def ClientHandler(lock, conn, address):
     print("Connection from: ", address)
@@ -39,13 +42,14 @@ def ClientHandler(lock, conn, address):
                 else:
                     message = "Remaining Credit: " + str(response)
                 lock.release()
-            
+
             elif action[0] == "exit":
                 print("Disconnected: ", address)
                 conn.close()
                 break
-        
+
             conn.send(message.encode())
+
 
 def MyServer(host, port):
     server_socket = socket.socket()
@@ -63,5 +67,6 @@ def MyServer(host, port):
 
         except KeyboardInterrupt:
             break
+
 
 MyServer("localhost", 9999)
