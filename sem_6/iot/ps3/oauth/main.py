@@ -37,7 +37,9 @@ def login(credentials: dict = Depends(get_credentials)):
         "redirect_uri": "http://127.0.0.1:8000/callback",
         "nonce": "raz",
     }
-    url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode(params)
+    url = "https://accounts.google.com/o/oauth2/v2/auth?" + urllib.parse.urlencode(
+        params
+    )
     return RedirectResponse(url)
 
 
@@ -48,20 +50,18 @@ def google_callback(code: str, credentials: dict = Depends(get_credentials)):
         "client_id": credentials["web"]["client_id"],
         "client_secret": credentials["web"]["client_secret"],
         "redirect_uri": "http://127.0.0.1:8000/callback",
-        "grant_type": "authorization_code"
+        "grant_type": "authorization_code",
     }
     response = requests.post("https://oauth2.googleapis.com/token", data=body).json()
-    with open("token.json", 'w') as token_file:
-        token_file.write(json.dumps(response, indent = 6))
+    with open("token.json", "w") as token_file:
+        token_file.write(json.dumps(response, indent=6))
 
     return response
 
 
 @app.get("/get_token_info")
 def get_token_info(id_token: str = Depends(get_id_token)):
-    params = {
-        "id_token": id_token
-    }
+    params = {"id_token": id_token}
     return requests.get("https://oauth2.googleapis.com/tokeninfo", params=params).json()
 
 
@@ -70,15 +70,15 @@ def get_user_info(access_token: str = Depends(get_access_token)):
     headers = {
         "Authorization": "Bearer " + access_token,
     }
-    return requests.get("https://www.googleapis.com/oauth2/v1/userinfo?alt=json", headers=headers).json()
+    return requests.get(
+        "https://www.googleapis.com/oauth2/v1/userinfo?alt=json", headers=headers
+    ).json()
 
 
 @app.get("/logout")
 def logout(access_token: str = Depends(get_access_token)):
-    params = {
-        "token": access_token
-    }
-    headers = {
-        "content-type": "application/x-www-form-urlencoded"
-    }
-    return requests.post("https://oauth2.googleapis.com/revoke", params=params, headers=headers).json()
+    params = {"token": access_token}
+    headers = {"content-type": "application/x-www-form-urlencoded"}
+    return requests.post(
+        "https://oauth2.googleapis.com/revoke", params=params, headers=headers
+    ).json()
